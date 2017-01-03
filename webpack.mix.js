@@ -13,4 +13,5 @@ let mix = require('laravel-mix').mix;
 
 mix.setPublicPath(__dirname + '/dist');
 
-mix.js('src/ui-kit.js', '/');
+mix.js('src/ui-kit.js', '/')
+    .sass('src/scss/ui-kit.scss', '/');
