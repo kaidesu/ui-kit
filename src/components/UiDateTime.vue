@@ -19,6 +19,10 @@
         },
 
         props: {
+            title: {
+                type: String,
+                default: null
+            },
             options: {
                 type: Object
             },
@@ -64,14 +68,8 @@
             }
         },
 
-        ready() {
-            const input = this.$refs.input.$els.input;
-            new Flatpickr(input);
-        },
-
         mounted() {
-            const input = this.$refs.input.$els.input;
-            new Flatpickr(input);
+            new Flatpickr(this.$el.querySelector('input'));
         }
     }
 </script>

@@ -240,6 +240,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
     },
 
     props: {
+        title: {
+            type: String,
+            default: null
+        },
         options: {
             type: Object
         },
@@ -285,13 +289,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
         }
     },
 
-    ready: function ready() {
-        var input = this.$refs.input.$els.input;
-        new __WEBPACK_IMPORTED_MODULE_1_flatpickr___default.a(input);
-    },
     mounted: function mounted() {
-        var input = this.$refs.input.$els.input;
-        new __WEBPACK_IMPORTED_MODULE_1_flatpickr___default.a(input);
+        new __WEBPACK_IMPORTED_MODULE_1_flatpickr___default.a(this.$el.querySelector('input'));
     }
 };
 

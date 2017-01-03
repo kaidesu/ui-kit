@@ -14,4 +14,7 @@ let mix = require('laravel-mix').mix;
 mix.setPublicPath(__dirname + '/dist');
 
 mix.js('src/ui-kit.js', '/')
-    .sass('src/scss/ui-kit.scss', '/');
+    .sass('src/scss/ui-kit.scss', '/')
+    .copy('dist/ui-kit.css', 'docs/assets/css')
+    .copy('dist/ui-kit.js', 'docs/assets/js')
+    .disableNotifications();;

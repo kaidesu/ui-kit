@@ -63,19 +63,63 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(5)
+
+/* template */
+var __vue_template__ = __webpack_require__(9)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/Kai/Code/ui-kit/src/components/UiInput.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3855592c", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-3855592c", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional) {console.error("[vue-loader] UiInput.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+module.exports = __vue_exports__
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_UiAlert_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_UiAlert_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_UiAlert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_UiAlert_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UiDateTime_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UiDateTime_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UiDateTime_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_UiDateTime_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_UiInput_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_UiInput_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_UiInput_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_UiInput_vue__);
 
 
@@ -96,7 +140,13 @@ var UIKit = {
 window.UIKit = UIKit;
 
 /***/ },
-/* 1 */
+/* 2 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -160,108 +210,89 @@ Object.defineProperty(exports, "__esModule", { value: true });
 };
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = {}
-
-/* script */
-__vue_exports__ = __webpack_require__(1)
-
-/* template */
-var __vue_template__ = __webpack_require__(3)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/Kai/Code/ui-kit/src/components/UiAlert.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7b6c71be", __vue_options__)
-  } else {
-    hotAPI.reload("data-v-7b6c71be", __vue_options__)
-  }
-})()}
-if (__vue_options__.functional) {console.error("[vue-loader] UiAlert.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-module.exports = __vue_exports__
-
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.show),
-      expression: "show"
-    }],
-    class: {
-      'alert': true,
-      'alert-success': (_vm.type == 'success'),
-      'alert-warning': (_vm.type == 'warning'),
-      'alert-info': (_vm.type == 'info'),
-      'alert-danger': (_vm.type == 'danger')
-    },
-    attrs: {
-      "transition": "fade",
-      "role": "alert"
-    }
-  }, [_c('button', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.dismissable),
-      expression: "dismissable"
-    }],
-    staticClass: "close",
-    attrs: {
-      "type": "button"
-    },
-    on: {
-      "click": function($event) {
-        _vm.show = false
-      }
-    }
-  }, [_c('span', {
-    attrs: {
-      "aria-hidden": "true"
-    }
-  }, [_vm._v("×")])]), _vm._v(" "), _vm._t("default")], 2)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7b6c71be", module.exports)
-  }
-}
-
-/***/ },
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(0);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__UiInput_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__UiInput_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__UiInput_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_flatpickr__);
+Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+
+
+
+/* harmony default export */ exports["default"] = {
+    components: {
+        UiInput: __WEBPACK_IMPORTED_MODULE_0__UiInput_vue___default.a
+    },
+
+    props: {
+        title: {
+            type: String,
+            default: null
+        },
+        options: {
+            type: Object
+        },
+        value: {
+            twoWay: true,
+            default: null
+        },
+        brand: {
+            type: String,
+            default: null
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        label: {
+            type: String,
+            default: null
+        },
+        name: {
+            type: String,
+            default: null
+        },
+        help: {
+            type: String,
+            default: null
+        },
+        showHelp: {
+            type: Boolean,
+            default: true
+        },
+        placeholder: {
+            type: String,
+            default: null
+        },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
+        required: {
+            type: Boolean,
+            default: false
+        }
+    },
+
+    mounted: function mounted() {
+        new __WEBPACK_IMPORTED_MODULE_1_flatpickr___default.a(this.$el.querySelector('input'));
+    }
+};
 
 /***/ },
 /* 5 */
@@ -403,248 +434,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 /***/ },
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = {}
-
-/* script */
-__vue_exports__ = __webpack_require__(5)
-
-/* template */
-var __vue_template__ = __webpack_require__(7)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/Kai/Code/ui-kit/src/components/UiInput.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3855592c", __vue_options__)
-  } else {
-    hotAPI.reload("data-v-3855592c", __vue_options__)
-  }
-})()}
-if (__vue_options__.functional) {console.error("[vue-loader] UiInput.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-module.exports = __vue_exports__
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "form-group"
-  }, [(_vm.label) ? _c('label', {
-    attrs: {
-      "for": _vm.name
-    }
-  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e(), _vm._v(" "), ((_vm.type == 'textarea')) ? _c('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.value),
-      expression: "value"
-    }],
-    staticClass: "form-control",
-    class: _vm.brand,
-    attrs: {
-      "cols": _vm.cols,
-      "rows": _vm.rows,
-      "name": _vm.name,
-      "id": _vm.name,
-      "readonly": _vm.readonly,
-      "required": _vm.required,
-      "disabled": _vm.disabled,
-      "minlength": _vm.minlength,
-      "maxlength": _vm.maxlength,
-      "placeholder": _vm.placeholder
-    },
-    domProps: {
-      "value": _vm._s(_vm.value)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.value = $event.target.value
-      }
-    }
-  }) : _vm._e(), _vm._v(" "), ((_vm.type == 'text')) ? [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.value),
-      expression: "value"
-    }],
-    staticClass: "form-control",
-    class: _vm.brand,
-    attrs: {
-      "type": "text",
-      "name": _vm.name,
-      "id": _vm.name,
-      "title": _vm.title,
-      "readonly": _vm.readonly,
-      "required": _vm.required,
-      "disabled": _vm.disabled,
-      "minlength": _vm.minlength,
-      "maxlength": _vm.maxlength,
-      "placeholder": _vm.placeholder
-    },
-    domProps: {
-      "value": _vm._s(_vm.value)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.value = $event.target.value
-      }
-    }
-  })] : _vm._e(), _vm._v(" "), ((_vm.type == 'password')) ? [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.value),
-      expression: "value"
-    }],
-    staticClass: "form-control",
-    class: _vm.brand,
-    attrs: {
-      "type": "password",
-      "name": _vm.name,
-      "id": _vm.name,
-      "title": _vm.title,
-      "required": _vm.required,
-      "disabled": _vm.disabled,
-      "minlength": _vm.minlength,
-      "maxlength": _vm.maxlength,
-      "placeholder": _vm.placeholder
-    },
-    domProps: {
-      "value": _vm._s(_vm.value)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.value = $event.target.value
-      }
-    }
-  })] : _vm._e(), _vm._v(" "), (_vm.showHelp) ? _c('p', {
-    staticClass: "form-text text-muted"
-  }, [_vm._v(_vm._s(_vm.help))]) : _vm._e()], 2)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3855592c", module.exports)
-  }
-}
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__UiInput_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__UiInput_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__UiInput_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_flatpickr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_flatpickr__);
-Object.defineProperty(exports, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ exports["default"] = {
-    components: {
-        UiInput: __WEBPACK_IMPORTED_MODULE_0__UiInput_vue___default.a
-    },
-
-    props: {
-        options: {
-            type: Object
-        },
-        value: {
-            twoWay: true,
-            default: null
-        },
-        brand: {
-            type: String,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        label: {
-            type: String,
-            default: null
-        },
-        name: {
-            type: String,
-            default: null
-        },
-        help: {
-            type: String,
-            default: null
-        },
-        showHelp: {
-            type: Boolean,
-            default: true
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        required: {
-            type: Boolean,
-            default: false
-        }
-    },
-
-    ready: function ready() {
-        var input = this.$refs.input.$els.input;
-        new __WEBPACK_IMPORTED_MODULE_1_flatpickr___default.a(input);
-    },
-    mounted: function mounted() {
-        var input = this.$refs.input.$els.input;
-        new __WEBPACK_IMPORTED_MODULE_1_flatpickr___default.a(input);
-    }
-};
-
-/***/ },
-/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -2319,14 +2108,58 @@ if (true) module.exports = Flatpickr;
 
 
 /***/ },
-/* 10 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
 /* script */
-__vue_exports__ = __webpack_require__(8)
+__vue_exports__ = __webpack_require__(3)
+
+/* template */
+var __vue_template__ = __webpack_require__(10)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/Kai/Code/ui-kit/src/components/UiAlert.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7b6c71be", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-7b6c71be", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional) {console.error("[vue-loader] UiAlert.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+module.exports = __vue_exports__
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(4)
 
 /* template */
 var __vue_template__ = __webpack_require__(11)
@@ -2363,6 +2196,171 @@ module.exports = __vue_exports__
 
 
 /***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [(_vm.label) ? _c('label', {
+    attrs: {
+      "for": _vm.name
+    }
+  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e(), _vm._v(" "), ((_vm.type == 'textarea')) ? _c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.value),
+      expression: "value"
+    }],
+    staticClass: "form-control",
+    class: _vm.brand,
+    attrs: {
+      "cols": _vm.cols,
+      "rows": _vm.rows,
+      "name": _vm.name,
+      "id": _vm.name,
+      "readonly": _vm.readonly,
+      "required": _vm.required,
+      "disabled": _vm.disabled,
+      "minlength": _vm.minlength,
+      "maxlength": _vm.maxlength,
+      "placeholder": _vm.placeholder
+    },
+    domProps: {
+      "value": _vm._s(_vm.value)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.value = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), ((_vm.type == 'text')) ? [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.value),
+      expression: "value"
+    }],
+    staticClass: "form-control",
+    class: _vm.brand,
+    attrs: {
+      "type": "text",
+      "name": _vm.name,
+      "id": _vm.name,
+      "title": _vm.title,
+      "readonly": _vm.readonly,
+      "required": _vm.required,
+      "disabled": _vm.disabled,
+      "minlength": _vm.minlength,
+      "maxlength": _vm.maxlength,
+      "placeholder": _vm.placeholder
+    },
+    domProps: {
+      "value": _vm._s(_vm.value)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.value = $event.target.value
+      }
+    }
+  })] : _vm._e(), _vm._v(" "), ((_vm.type == 'password')) ? [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.value),
+      expression: "value"
+    }],
+    staticClass: "form-control",
+    class: _vm.brand,
+    attrs: {
+      "type": "password",
+      "name": _vm.name,
+      "id": _vm.name,
+      "title": _vm.title,
+      "required": _vm.required,
+      "disabled": _vm.disabled,
+      "minlength": _vm.minlength,
+      "maxlength": _vm.maxlength,
+      "placeholder": _vm.placeholder
+    },
+    domProps: {
+      "value": _vm._s(_vm.value)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.value = $event.target.value
+      }
+    }
+  })] : _vm._e(), _vm._v(" "), (_vm.showHelp) ? _c('p', {
+    staticClass: "form-text text-muted"
+  }, [_vm._v(_vm._s(_vm.help))]) : _vm._e()], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3855592c", module.exports)
+  }
+}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.show),
+      expression: "show"
+    }],
+    class: {
+      'alert': true,
+      'alert-success': (_vm.type == 'success'),
+      'alert-warning': (_vm.type == 'warning'),
+      'alert-info': (_vm.type == 'info'),
+      'alert-danger': (_vm.type == 'danger')
+    },
+    attrs: {
+      "transition": "fade",
+      "role": "alert"
+    }
+  }, [_c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.dismissable),
+      expression: "dismissable"
+    }],
+    staticClass: "close",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.show = false
+      }
+    }
+  }, [_c('span', {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])]), _vm._v(" "), _vm._t("default")], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7b6c71be", module.exports)
+  }
+}
+
+/***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2385,6 +2383,14 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-e11966ae", module.exports)
   }
 }
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+__webpack_require__(1);
+module.exports = __webpack_require__(2);
+
 
 /***/ }
 /******/ ]);
