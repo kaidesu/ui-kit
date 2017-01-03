@@ -1,0 +1,23 @@
+{
+  "name": "ui-kit",
+  "version": "1.0.0",
+  "description": "Bootstrap 4 UI kit built using Vue.js.",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "dev": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hmr": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-mix": "^0.2.8",
+    "umbrellajs": "^2.6.7"
+  },
+  "dependencies": {
+    "flatpickr": "^2.2.5",
+    "vue": "^2.1.8"
+  }
+}
