@@ -1,42 +1,42 @@
 <template>
-    <ui-input
-        :name="name"
-        :brand="brand"
-        :title="title"
-        :required="required"
-        :disabled="disabled"
-        :placeholder="placeholder">
-    </fx-input>
+    <div class="input-group">
+        <span class="input-group-btn">
+            <a class="btn btn-secondary" data-toggle><i class="fa fa-calendar fa-fw"></i></a>
+        </span>
+        <input
+            data-input
+            v-model="value"
+            :placeholder="placeholder"
+            :name="name"
+            :id="name"
+            class="form-control"
+        >
+        <span class="input-group-btn">
+            <a class="btn btn-secondary" data-clear><i class="fa fa-close fa-fw"></i></a>
+        </span>
+    </div>
 </template>
 
 <script>
-    import UiInput from './UiInput.vue';
     import Flatpickr from 'flatpickr';
 
     export default {
-        components: {
-            UiInput
+        data: function () {
+            return {
+                value: this.initialValue
+            }
         },
 
         props: {
-            title: {
-                type: String,
-                default: null
-            },
-            options: {
-                type: Object
-            },
-            value: {
-                twoWay: true,
-                default: null
-            },
-            brand: {
-                type: String,
-                default: null
-            },
-            disabled: {
+            time: {
                 type: Boolean,
                 default: false
+            },
+            format: {
+                default: false
+            },
+            initialValue: {
+                default: null
             },
             label: {
                 type: String,
@@ -46,30 +46,18 @@
                 type: String,
                 default: null
             },
-            help: {
-                type: String,
-                default: null
-            },
-            showHelp: {
-                type: Boolean,
-                default: true
-            },
             placeholder: {
                 type: String,
                 default: null
             },
-            readonly: {
-                type: Boolean,
-                default: false
-            },
-            required: {
-                type: Boolean,
-                default: false
-            }
         },
 
         mounted() {
-            new Flatpickr(this.$el.querySelector('input'));
+            new Flatpickr(this.$el.querySelector('input'), {
+                enableTime: this.time,
+                altInput: Boolean(this.format),
+                altFormat: this.format
+            });
         }
     }
 </script>
