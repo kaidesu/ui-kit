@@ -1,5 +1,9 @@
 Vue.use(UIKit);
 
+var data = {};
+
 new Vue({
-    el: '#root'
+    el: '#root',
+
+    data: data
 });

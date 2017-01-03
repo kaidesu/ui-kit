@@ -27,19 +27,73 @@
 
         <div id="root">
             <div class="container">
-                <h1>Hello World <ui-tag>Booya</ui-tag></h1>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-block">
+                            <h1>Hello World <ui-tag pill>Booya</ui-tag></h1>
 
-                <ui-alert>Hi there!</ui-alert>
-                <ui-alert type="danger">Hi there!</ui-alert>
+                            <ui-alert>Hi there!</ui-alert>
+                            <ui-alert type="danger">Hi there!</ui-alert>
 
-                <ui-input></ui-input>
+                            <ui-input></ui-input>
 
-                <ui-datetime time placeholder="Pick a date"></ui-datetime>
+                            <ui-datetime time placeholder="Pick a date"></ui-datetime>
+
+                            <button type="button" class="btn btn-primary" @click="Vue.$events.fire('toggle.modal.coffee')">Show Modal</button>
+
+                            <ui-modal small title="Coffee is a Language in Itself" id="coffee">
+                                <div class="modal-body">
+                                    <h2>Hello World</h2>
+
+                                    <p>Crema, shop cup, plunger pot siphon, rich turkish latte aromatic cream pumpkin spice single shot. Black siphon, blue mountain, iced ut mocha chicory cream bar mazagran brewed. Robusta robust, variety, french press robusta, seasonal coffee grinder shop grinder. Sit body, ut fair trade medium at arabica bar whipped sweet pumpkin spice trifecta. Aftertaste percolator, extraction, blue mountain sweet mocha so organic cortado filter.</p>
+                                    <p>Frappuccino macchiato roast, breve robust variety body bar single origin. Shop, strong, grinder, caffeine affogato coffee steamed at turkish. Cinnamon, seasonal mug kopi-luwak irish, con panna est frappuccino robust aftertaste pumpkin spice aromatic. So, shop trifecta con panna, latte aromatic strong milk chicory. Grinder dripper, café au lait roast qui cream acerbic milk.</p>
+                                </div>
+                            </ui-modal>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Table</h4>
+                            </div>
+
+                            <ui-table>
+                                <ui-thead>
+                                    <ui-tr>
+                                        <ui-th>Foo</ui-th>
+                                    </ui-tr>
+                                </ui-thead>
+
+                                <ui-tbody>
+                                    <ui-tr>
+                                        <ui-td>asdf</ui-td>
+                                    </ui-tr>
+
+                                    <ui-tr>
+                                        <ui-td>asdf</ui-td>
+                                    </ui-tr>
+
+                                    <ui-tr>
+                                        <ui-td>asdf</ui-td>
+                                    </ui-tr>
+
+                                    <ui-tr>
+                                        <ui-td>asdf</ui-td>
+                                    </ui-tr>
+                                </ui-tbody>
+                            </ui-table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
         <script src="assets/js/vue.js"></script>
         <script src="assets/js/ui-kit.js"></script>
         <script src="assets/js/docs.js"></script>
+
+        <script>
+            console.log(UIKit);
+        </script>
     </body>
 </html>
