@@ -2878,9 +2878,99 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ exports["default"] = {
-    //
+    data: function data() {
+        return {
+            columns: [],
+            data: []
+        };
+    },
+
+    methods: {
+        objectIsEmpty: function objectIsEmpty(obj) {
+            for (var x in obj) {
+                return false;
+            }
+
+            return true;
+        },
+        populateColumns: function populateColumns() {
+            var vm = this;
+
+            if (this.$children.length) {
+                this.$children.forEach(function (component, index) {
+                    if (component.$options.name === 'ui-thead') {
+                        var columns = component.$children[0].$children;
+                        columns.forEach(function (column, index) {
+                            var title = '';
+
+                            if (column.$slots.default) {
+                                title = column.$slots.default[0].text;
+                            }
+
+                            vm.columns.push(title);
+                        });
+                    }
+                });
+            }
+        },
+        populateData: function populateData() {
+            var vm = this;
+
+            if (this.$children.length) {
+                this.$children.forEach(function (component, index) {
+                    if (component.$options.name === 'ui-tbody') {
+                        var rows = component.$children;
+
+                        rows.forEach(function (row, index) {
+                            var rowData = [];
+
+                            row.$children.forEach(function (data) {
+                                var value = '';
+                                var rowText = '';
+                                var rowRawHTML = '';
+
+                                if (!vm.objectIsEmpty(data.$slots)) {
+                                    rowText = data.$slots.default[0].text;
+                                    rowRawHTML = data.$slots.default[0].elm.outerHTML;
+
+                                    if (rowText == undefined) {
+                                        value = rowRawHTML;
+                                    } else {
+                                        value = rowText;
+                                    }
+                                }
+
+                                rowData.push(value);
+                            });
+
+                            vm.data.push(rowData);
+                        });
+                    }
+                });
+            }
+        }
+    },
+
+    mounted: function mounted() {
+        this.populateColumns();
+        this.populateData();
+    }
 };
 
 /***/ },
@@ -2934,7 +3024,17 @@ module.exports = __vue_exports__
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('table', {
     staticClass: "table table-striped"
-  }, [_vm._t("default")], 2)
+  }, [_vm._t("default"), _vm._v(" "), _c('thead', [_c('tr', _vm._l((_vm.columns), function(column) {
+    return _c('th', [_vm._v("\n                " + _vm._s(column) + "\n            ")])
+  }))]), _vm._v(" "), _c('tbody', _vm._l((_vm.data), function(entry) {
+    return _c('tr', _vm._l((_vm.columns), function(column, key) {
+      return _c('td', {
+        domProps: {
+          "innerHTML": _vm._s(entry[key])
+        }
+      })
+    }))
+  }))], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -2959,6 +3059,8 @@ if (false) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -3139,7 +3241,14 @@ module.exports = __vue_exports__
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('tr', [_vm._t("default")], 2)
+  return _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (false),
+      expression: "false"
+    }]
+  }, [_vm._t("default")], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -3154,7 +3263,14 @@ if (false) {
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('th', [_vm._t("default")], 2)
+  return _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (false),
+      expression: "false"
+    }]
+  }, [_vm._t("default")], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -3169,7 +3285,14 @@ if (false) {
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_vm._t("default")], 2)
+  return _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (false),
+      expression: "false"
+    }]
+  }, [_vm._t("default")], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -3245,7 +3368,11 @@ module.exports = __vue_exports__
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('tbody', [_vm._t("default")], 2)
+  return _c('span', {
+    staticStyle: {
+      "display": "none"
+    }
+  }, [_vm._t("default")], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -3261,6 +3388,8 @@ if (false) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -3319,7 +3448,14 @@ module.exports = __vue_exports__
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('td', [_vm._t("default")], 2)
+  return _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (false),
+      expression: "false"
+    }]
+  }, [_vm._t("default")], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

@@ -1,7 +1,7 @@
 <template>
-    <tbody>
+    <span style="display: none;">
         <slot></slot>
-    </tbody>
+    </span>
 </template>
 
 <script>

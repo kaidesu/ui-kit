@@ -1,7 +1,7 @@
 <template>
-    <tr>
+    <span v-show="false">
         <slot></slot>
-    </tr>
+    </span>
 </template>
 
 <script>

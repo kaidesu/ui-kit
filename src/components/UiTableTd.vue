@@ -1,5 +1,7 @@
 <template>
-    <td><slot></slot></td>
+    <span v-show="false">
+        <slot></slot>
+    </span>
 </template>
 
 <script>
