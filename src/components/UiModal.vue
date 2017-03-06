@@ -1,27 +1,32 @@
 <template>
-    <div class="modal fade">
-        <div
-            class="modal-dialog"
-            :class="{'modal-lg': large, 'modal-sm': small}"
-            role="document"
-        >
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" aria-label="Close" @click="this.$events.fire('toggle.modal' + id)">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div>
+        <div class="modal" :class="{'in': show}" :style="styles">
+            <div
+                class="modal-dialog"
+                :class="{'modal-lg': large, 'modal-sm': small}"
+                role="document"
+            >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" v-if="title">{{ title }}</h5>
 
-                    <h4 class="modal-title" v-if="title">{{ title }}</h4>
-                </div>
+                        <button type="button" class="close" aria-label="Close" @click="$events.fire('toggle.modal.' + id)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
-                <slot></slot>
+                    <div class="modal-body">
+                        <slot name="body"></slot>
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @click="close">{{ cancelText }}</button>
-                    <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
+                    <div class="modal-footer">
+                        <slot name="footer"></slot>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="modal-backdrop fade show" v-if="show"></div>
     </div>
 </template>
 
@@ -29,9 +34,16 @@
     import {u} from 'umbrellajs';
 
     export default {
+        name: 'ui-modal',
+
+        store: ['component'],
+
         data: function () {
             return {
-                show: false
+                show: false,
+                styles: {
+                    display: 'none'
+                }
             }
         },
 
@@ -66,18 +78,16 @@
 
         watch: {
             show(val) {
-                const el = this.$el;
                 const body = document.body;
 
                 if (val) {
-                    el.style.display = 'block';
-                    setTimeout(() => u(el).addClass('in'), 0);
+                    this.styles.display = 'block';
 
                     u(body).addClass('modal-open');
                 } else {
-                    el.style.display = 'none';
+                    this.styles.display = 'none';
+
                     body.style.paddingRight = '0';
-                    setTimeout(() => u(el).removeClass('in'), 0);
 
                     u(body).removeClass('modal-open');
                 }

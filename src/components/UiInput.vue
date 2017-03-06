@@ -1,81 +1,88 @@
 <template>
-    <div class="form-group">
-        <label v-if="label" :for="name">{{ label }}</label>
+    <div :class="{'form-group': true, 'row': horizontal}">
 
-        <textarea v-if="(type == 'textarea')"
-            class="form-control"
-            v-model="value"
-            :class="brand"
-            :cols="cols"
-            :rows="rows"
-            :name="name"
-            :id="name"
-            :readonly="readonly"
-            :required="required"
-            :disabled="disabled"
-            :minlength="minlength"
-            :maxlength="maxlength"
-            :placeholder="placeholder"
-        ></textarea>
+        <label v-if="label" :class="{'col-input-label': horizontal, 'col-form-label': horizontal}" :for="name">{{ label }}</label>
 
-        <template v-if="(type == 'text')">
-            <input class="form-control"
-                type="text"
-                v-model="value"
-                :class="brand"
+        <div :class="{'col': horizontal}">
+            <input
+                v-if="type != 'textarea'"
+                :class="{'form-control': true, 'form-control-lg': large, 'form-control-sm': small}"
+                ref="input"
+                :type="type"
+                :value="value"
                 :name="name"
                 :id="name"
                 :title="title"
                 :readonly="readonly"
                 :required="required"
                 :disabled="disabled"
-                :minlength="minlength"
                 :maxlength="maxlength"
                 :placeholder="placeholder"
-            >
-        </template>
+                :style="styles"
 
-        <template v-if="(type == 'password')">
-            <input class="form-control"
-                type="password"
-                v-model="value"
-                :class="brand"
+                @input="updateValue($event.target.value)"
+            >
+
+            <textarea
+                v-if="type == 'textarea'"
+                class="form-control"
+                ref="textarea"
                 :name="name"
                 :id="name"
-                :title="title"
+                :readonly="readonly"
                 :required="required"
                 :disabled="disabled"
-                :minlength="minlength"
                 :maxlength="maxlength"
                 :placeholder="placeholder"
-            >
-        </template>
+                :style="styles"
 
-        <p v-if="showHelp" class="form-text text-muted">{{ help }}</p>
+                @input="updateValue($event.target.value)"
+            >{{ value }}</textarea>
+
+            <p v-if="maxlength" class="form-text text-muted">{{ count }} / {{ maxlength }} characters left</p>
+
+            <p v-if="help" class="form-text text-muted">{{ help }}</p>
+        </div>
     </div>
 </template>
 
 <script>
+    import autosize from 'autosize';
+
     export default {
-        data: function () {
+        name: 'ui-input',
+
+        store: ['component'],
+
+        data() {
             return {
-                value: this.initialValue
+                value: '',
+                count: 0
             }
         },
 
         props: {
-            initialValue: {
-                default: null
+            val: {
+                type: String,
+                default: ''
+            },
+            large: {
+                type: Boolean,
+                default: false
+            },
+            small: {
+                type: Boolean,
+                default: false
+            },
+            horizontal: {
+                type: Boolean,
+                default: false
             },
             type: {
                 type: String,
                 default: 'text'
             },
             title: {
-                type: String,
-                default: null
-            },
-            brand: {
                 type: String,
                 default: null
             },
@@ -94,10 +101,6 @@
             help: {
                 type: String,
                 default: null
-            },
-            showHelp: {
-                type: Boolean,
-                default: true
             },
             placeholder: {
                 type: String,
@@ -119,14 +122,62 @@
                 type: Number,
                 default: 20
             },
-            minlength: {
-                type: Number,
-                default: 0
-            },
             maxlength: {
                 type: Number,
                 default: null
+            },
+            monospace: {
+                type: Boolean,
+                default: false
             }
+        },
+
+        computed: {
+            styles: function() {
+                var styling = {};
+
+                if (this.monospace == true) {
+                    styling['font-family'] = 'monospace';
+                }
+
+                return styling;
+            }
+        },
+
+        methods: {
+            updateValue(value) {
+                this.$set(this.component, this.name, value);
+
+                this.value = value;
+
+                this.$events.fire('input', {
+                    id: this.name,
+                    value: this.value
+                });
+            }
+        },
+
+        watch: {
+            value: function(newValue) {
+                if (this.maxlength != null) {
+                    this.count = this.maxlength - newValue.length;
+
+                    if (this.count > this.maxlength) {
+                        return newValue.substring(0, this.maxlength);
+                    }
+                }
+            }
+        },
+
+        created() {
+            this.value = this.val;
+            this.count = this.maxlength;
+
+            this.updateValue(this.value);
+        },
+
+        mounted() {
+            autosize(this.$refs.textarea);
         }
     }
 </script>

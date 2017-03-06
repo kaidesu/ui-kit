@@ -1,6 +1,6 @@
 <template>
     <div
-        v-show="show"
+        v-show="visible"
         :class="{
             'alert': true,
             'alert-success': (type == 'success'),
@@ -12,10 +12,10 @@
         role="alert"
     >
         <button
-            v-show="dismissable"
+            v-show="dismissible"
             type="button"
             class="close"
-            @click="show = false"
+            @click="visible = false"
         >
             <span aria-hidden="true">&times;</span>
         </button>
@@ -26,12 +26,20 @@
 
 <script>
     export default {
+        name: 'ui-alert',
+
+        data() {
+            return {
+                visible: true
+            }
+        },
+
         props: {
             type: {
                 type: String,
                 default: "info"
             },
-            dismissable: {
+            dismissible: {
                 type: Boolean,
                 default: false
             },
@@ -41,14 +49,16 @@
             },
             timeout: {
                 type: Number,
-                default: 5
+                default: 0
             }
         },
 
-        ready() {
-            if (! this.dismissable) {
+        mounted() {
+            this.visible = this.show;
+
+            if (! this.dismissible && this.timeout > 0) {
                 setTimeout(
-                    () => this.show = false,
+                    () => this.visible = false,
                     (this.timeout * 1000)
                 )
             }

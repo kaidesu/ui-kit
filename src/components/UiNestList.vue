@@ -1,11 +1,11 @@
 <template>
-    <span v-show="false">
+    <ol class="nest-list">
         <slot></slot>
-    </span>
+    </ol>
 </template>
 
 <script>
     export default {
-        //
+        name: 'ui-nest-list'
     }
 </script>

@@ -1,11 +1,11 @@
 <template>
-    <span v-show="false">
+    <div class="progress">
         <slot></slot>
-    </span>
+    </div>
 </template>
 
 <script>
     export default {
-        //
+        name: 'ui-progress'
     }
 </script>

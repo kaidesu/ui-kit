@@ -1,23 +1,41 @@
 {
   "name": "ui-kit",
   "version": "1.0.0",
-  "description": "Bootstrap 4 UI kit built using Vue.js.",
-  "main": "index.js",
+  "description": "Bootstrap 4 components built using Vue.js",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
-    "webpack": "cross-env NODE_ENV=development webpack --progress --hide-modules",
-    "dev": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
-    "hmr": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efellemedia/ui-kit.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "laravel-mix": "^0.2.8",
-    "umbrellajs": "^2.6.7"
+  "bugs": {
+    "url": "https://github.com/efellemedia/ui-kit/issues"
   },
+  "homepage": "https://github.com/efellemedia/ui-kit#readme",
   "dependencies": {
-    "flatpickr": "^2.2.5",
-    "vue": "^2.1.8"
+    "autosize": "^3.0.20",
+    "axios": "^0.15.3",
+    "dropzone": "^4.3.0",
+    "flatpickr": "^2.4.3",
+    "jquery": "^3.1.1",
+    "laravel-mix": "^0.8.8",
+    "lodash": "^4.17.4",
+    "marked": "^0.3.6",
+    "nestable": "^0.2.0",
+    "sortablejs": "^1.5.1",
+    "tether": "^1.4.0",
+    "umbrellajs": "^2.6.7",
+    "vue": "^2.2.1"
   }
 }
