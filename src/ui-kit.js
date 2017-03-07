@@ -5,6 +5,7 @@ import UiDateTime from './components/UiDateTime.vue';
 import UiDropdown from './components/UiDropdown.vue';
 import UiDropzone from './components/UiDropzone.vue';
 import UiGraph from './components/UiGraph.vue';
+import UiGrid from './components/UiGrid.vue';
 import UiInput from './components/UiInput.vue';
 import UiListGroup from './components/UiListGroup.vue';
 import UiListItem from './components/UiListItem.vue';
@@ -26,7 +27,7 @@ import UiTabs from './components/UiTabs.vue';
 import UiTooltip from './components/UiTooltip.vue';
 import UiTree from './components/UiTree.vue';
 
-import VueEvents from './events.js';
+import VueEvents from './support/events.js';
 
 const UIKit = {
     UiAlert,
@@ -36,6 +37,7 @@ const UIKit = {
     UiDropdown,
     UiDropzone,
     UiGraph,
+    UiGrid,
     UiInput,
     UiListGroup,
     UiListItem,
@@ -65,6 +67,7 @@ const UIKit = {
         Vue.component('ui-dropdown', UiDropdown);
         Vue.component('ui-dropzone', UiDropzone);
         Vue.component('ui-graph', UiGraph);
+        Vue.component('ui-grid', UiGrid);
         Vue.component('ui-input', UiInput);
         Vue.component('ui-list-group', UiListGroup);
         Vue.component('ui-list-item', UiListItem);

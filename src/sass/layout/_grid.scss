@@ -1,0 +1,53 @@
+$grid-cols: setting($grid, cols);
+$grid-rows: setting($grid, rows);
+$grid-col-names: (a, b, c, d, e, f, g, h, i, j, k, l);
+$cell-width: percentage(1 / $grid-cols);
+$cell-height: percentage(1 / $grid-rows);
+
+.grid {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+
+  @for $row from 1 through $grid-rows {
+    @for $col from 1 through $grid-cols {
+      @include mod(from-#{nth($grid-col-names, $col)}#{$row}) {
+        display: block;
+        top: ($row - 1) * $cell-height;
+        left: ($col - 1) * $cell-width;
+        z-index: 1000 - $row - $col;
+      }
+
+      @include mod(to-#{nth($grid-col-names, $col)}#{$row}) {
+        right: 100% - $col * $cell-width;
+        bottom: 100% - $row * $cell-height;
+      }
+    }
+  }
+}
+
+.grid__tile {
+  // @include tile-color(color($gray, darker));
+  // @include mod(transparent) {
+  //   @include tile-color(color($gray, darkest));
+  // }
+  //
+  // @include mod(blue) {
+  //   @include tile-color(color($blue, darker));
+  // }
+
+  flex: 1;
+  position: absolute;
+  top: setting($grid, cell-spacing) / 2;
+  right: setting($grid, cell-spacing) / 2;
+  bottom: setting($grid, cell-spacing) / 2;
+  left: setting($grid, cell-spacing) / 2;
+  overflow: hidden;
+
+  // background-color: color($gray, darker);
+  border-radius: .25vw;
+
+  & > :first-child {
+    height: 100%;
+  }
+}
