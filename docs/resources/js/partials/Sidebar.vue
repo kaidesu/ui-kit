@@ -11,6 +11,7 @@
 
             <li class="nav-item">Components</li>
             <li class="nav-link"><router-link to="ui-alert">UiAlert</router-link></li>
+            <li class="nav-link"><router-link to="ui-badge">UiBadge</router-link></li>
         </ul>
     </div>
 </template>

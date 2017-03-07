@@ -1,7 +1,5 @@
 import './bootstrap';
 import router from './routes';
-import _ from 'lodash';
-import {u} from 'umbrellajs';
 
 // Partials
 import Navbar from './partials/Navbar.vue';
