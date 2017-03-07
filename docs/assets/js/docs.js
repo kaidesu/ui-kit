@@ -15293,6 +15293,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     name: 'view-home'
@@ -15750,12 +15755,28 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('h1', [_vm._v("Usage")]), _vm._v(" "), _c('p', {
     staticClass: "lead"
-  }, [_vm._v("Learn how to use UIKit in a variety of applications.")]), _vm._v(" "), _c('h2', [_vm._v("ES6")]), _vm._v(" "), _c('h3', [_vm._v("Use Globally")]), _vm._v(" "), _c('p', [_vm._v("Register the entire UIKit with Vue for global use:")]), _vm._v(" "), _c('pre', [_vm._v("\nimport Vue from 'vue';\nimport UIKit from 'ui-kit';\n\nVue.use(UIKit);\n\nconst app = new Vue({\n    el: '#app',\n\n    // All UIKit components will be automatically registered for you.\n});\n        ")]), _vm._v(" "), _c('h3', [_vm._v("Use Components Individually")]), _vm._v(" "), _c('p', [_vm._v("Pick and choose the exact components you need without the need to load the entire component library:")]), _vm._v(" "), _c('pre', [_vm._v("\nimport Vue from 'vue';\nimport { UiAlert, UiButton } from 'ui-kit';\n\nconst app = new Vue({\n    el: '#app',\n    \n    components: {\n        UiAlert,\n        UiButton\n    }\n});\n        ")])])
-}]}
+  }, [_vm._v("Learn how to use UIKit in a variety of applications.")]), _vm._v(" "), _c('h2', [_vm._v("ES6")]), _vm._v(" "), _c('h3', [_vm._v("Use Globally")]), _vm._v(" "), _c('p', [_vm._v("Register the entire UIKit with Vue for global use:")]), _vm._v(" "), _c('div', {
+    staticClass: "highlight"
+  }, [_c('pre', {
+    directives: [{
+      name: "highlightjs",
+      rawName: "v-highlightjs"
+    }]
+  }, [_c('code', {
+    staticClass: "javascript"
+  }, [_vm._v("\nimport Vue from 'vue';\nimport UIKit from 'ui-kit';\n\nVue.use(UIKit);\n\nconst app = new Vue({\n    el: '#app',\n\n    // All UIKit components will be automatically registered for you.\n});\n            ")])])]), _vm._v(" "), _c('h3', [_vm._v("Use Components Individually")]), _vm._v(" "), _c('p', [_vm._v("Pick and choose the exact components you need without the need to load the entire component library:")]), _vm._v(" "), _c('div', {
+    staticClass: "highlight"
+  }, [_c('pre', {
+    directives: [{
+      name: "highlightjs",
+      rawName: "v-highlightjs"
+    }]
+  }, [_c('code', {
+    staticClass: "javascript"
+  }, [_vm._v("\nimport Vue from 'vue';\nimport { UiAlert, UiButton } from 'ui-kit';\n\nconst app = new Vue({\n    el: '#app',\n\n    components: {\n        UiAlert,\n        UiButton\n    }\n});\n            ")])])])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
