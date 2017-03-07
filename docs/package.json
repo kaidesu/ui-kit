@@ -7,7 +7,9 @@
     "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "highlight.js": "^9.9.0",
     "laravel-mix": "^0.8.8",
+    "umbrellajs": "^2.6.7",
     "vue": "^2.2.1",
     "vue-router": "^2.3.0"
   }

@@ -1,3 +1,31 @@
+@import '../../node_modules/highlight.js/styles/github.css';
+
 body {
   padding-top: 5rem;
+}
+
+.ui-example {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem -1rem;
+  margin-bottom: 0;
+  border: solid #f7f7f9;
+}
+
+.highlight {
+  padding: 1rem;
+  margin: 1rem -1rem;
+  margin-top: 0;
+  background-color: #f7f7f9;
+  border: solid #f7f7f9;
+
+  pre code {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 0;
+    overflow: auto;
+    word-wrap: normal;
+  }
 }

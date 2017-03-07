@@ -4,7 +4,7 @@
         <p class="lead">Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.</p>
 
         <h3>Examples</h3>
-        <div class="pt-3">
+        <div class="ui-example">
             <ui-alert type="success">
                 <strong>Well done!</strong> You successfully read this important alert message.
             </ui-alert>
@@ -22,6 +22,25 @@
             </ui-alert>
         </div>
 
+        <div class="highlight">
+            <pre v-highlightjs><code class="html">
+&lt;ui-alert type="success"&gt;
+    &lt;strong&gt;Well done!&lt;/strong&gt; You successfully read this important alert message.
+&lt;/ui-alert&gt;
+
+&lt;ui-alert&gt;
+    &lt;strong&gt;Heads up!&lt;/strong&gt; This alert needs your attention, but it's not super important.
+&lt;/ui-alert&gt;
+
+&lt;ui-alert type="warning"&gt;
+    &lt;strong&gt;Warning!&lt;/strong&gt; Better check yourself, you're not looking too good.
+&lt;/ui-alert&gt;
+
+&lt;ui-alert type="danger"&gt;
+    &lt;strong&gt;Oh snap!&lt;/strong&gt; Change a few things up and try submitting again.
+&lt;/ui-alert&gt;
+            </code></pre>
+        </div>
 
         <h3>API</h3>
         <div class="pt-3">
@@ -55,6 +74,15 @@
                                     <td><code>true</code></td>
                                     <td>
                                         <p>Whether or not the alert shows a dismissible icon to close the alert manually.</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>timeout</td>
+                                    <td>Integer</td>
+                                    <td><code>0</code></td>
+                                    <td>
+                                        <p>Specify the number of seconds the alert should auto-dismiss itself. Set to <code>0</code> to disable.</p>
                                     </td>
                                 </tr>
                             </tbody>
