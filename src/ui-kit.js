@@ -4,6 +4,7 @@ import UiCollapse from './components/UiCollapse.vue';
 import UiDateTime from './components/UiDateTime.vue';
 import UiDropdown from './components/UiDropdown.vue';
 import UiDropzone from './components/UiDropzone.vue';
+import UiGraph from './components/UiGraph.vue';
 import UiInput from './components/UiInput.vue';
 import UiListGroup from './components/UiListGroup.vue';
 import UiListItem from './components/UiListItem.vue';
@@ -34,6 +35,7 @@ const UIKit = {
     UiDateTime,
     UiDropdown,
     UiDropzone,
+    UiGraph,
     UiInput,
     UiListGroup,
     UiListItem,
@@ -62,6 +64,7 @@ const UIKit = {
         Vue.component('ui-datetime', UiDateTime);
         Vue.component('ui-dropdown', UiDropdown);
         Vue.component('ui-dropzone', UiDropzone);
+        Vue.component('ui-graph', UiGraph);
         Vue.component('ui-input', UiInput);
         Vue.component('ui-list-group', UiListGroup);
         Vue.component('ui-list-item', UiListItem);

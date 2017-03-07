@@ -10,8 +10,13 @@
             <li class="nav-link"><router-link to="/usage">Usage</router-link></li>
 
             <li class="nav-item">Components</li>
-            <li class="nav-link"><router-link to="ui-alert">UiAlert</router-link></li>
-            <li class="nav-link"><router-link to="ui-badge">UiBadge</router-link></li>
+            <li class="nav-link"><router-link to="/ui-alert">UiAlert</router-link></li>
+            <li class="nav-link"><router-link to="/ui-badge">UiBadge</router-link></li>
+            <li class="nav-link"><router-link to="/ui-graph">UiGraph</router-link></li>
+
+            <li class="nav-item">Graphs</li>
+            <li class="nav-link"><router-link to="/graphs">Introduction</router-link></li>
+            <li class="nav-link"><router-link to="/graph-line">Line Chart</router-link></li>
         </ul>
     </div>
 </template>
