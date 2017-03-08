@@ -1,6 +1,6 @@
 {
-  "name": "ui-kit",
-  "version": "1.0.0",
+  "name": "@efelle/ui-kit",
+  "version": "0.1",
   "description": "Bootstrap 4 components built using Vue.js",
   "main": "webpack.config.js",
   "directories": {
@@ -16,9 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/efellemedia/ui-kit.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "efelle",
   "bugs": {
     "url": "https://github.com/efellemedia/ui-kit/issues"
   },
