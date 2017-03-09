@@ -93,4 +93,9 @@ const UIKit = {
     }
 };
 
-window.UIKit = UIKit;
+// Automatically install UIKit if Vue is available globally
+if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.use(UIKit);
+}
+
+export default UIKit;

@@ -1,8 +1,8 @@
 {
   "name": "@efelle/ui-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Bootstrap 4 components built using Vue.js",
-  "main": "webpack.config.js",
+  "main": "dist/ui-kit.js",
   "directories": {
     "doc": "docs"
   },
