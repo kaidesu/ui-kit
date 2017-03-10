@@ -99,3 +99,28 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default UIKit;
+
+export { UiAlert };
+export { UiBadge };
+export { UiCollapse };
+export { UiDateTime };
+export { UiDropdown };
+export { UiDropzone };
+export { UiGraph };
+export { UiGrid };
+export { UiInput };
+export { UiListGroup };
+export { UiListItem };
+export { UiMarkdown };
+export { UiModal };
+export { UiOption };
+export { UiOptionBuilder };
+export { UiPagination };
+export { UiProgress };
+export { UiProgressBar };
+export { UiSelect };
+export { UiSlug };
+export { UiTab };
+export { UiTabs };
+export { UiTooltip };
+export { UiTree };

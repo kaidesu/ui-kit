@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import UIKit from '../../../dist/ui-kit';
+import UIKit from '@efelle/ui-kit';
 import hljs from 'highlight.js';
 import _ from 'lodash';
 
