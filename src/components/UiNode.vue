@@ -77,7 +77,7 @@
 				}
 			},
 			clickNode(value) {
-				this.$events.fire('nodeClicked', { 'name': this.reference, 'value': value });
+				this.$UIevents.fire('nodeClicked', { 'name': this.reference, 'value': value });
 			},
 			editNode(id) {
 				console.log('TODO: editNode');

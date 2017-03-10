@@ -10,7 +10,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" v-if="title">{{ title }}</h5>
 
-                        <button type="button" class="close" aria-label="Close" @click="$events.fire('toggle.modal.' + id)">
+                        <button type="button" class="close" aria-label="Close" @click="$UIevents.fire('toggle.modal.' + id)">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -101,7 +101,7 @@
         },
 
         created() {
-            this.$events.listen('toggle.modal.' + this.id, () => {
+            this.$UIevents.listen('toggle.modal.' + this.id, () => {
                 this.show = !this.show;
             });
         }

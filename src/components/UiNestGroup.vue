@@ -61,7 +61,7 @@
 <style lang="scss">
     .dd-dragel {
         position: absolute;
-        pointer-events: none;
+        pointer-UIevents: none;
         z-index: 9999;
     }
 

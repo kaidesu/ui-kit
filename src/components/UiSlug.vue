@@ -89,7 +89,7 @@
             this.value = this.slugify(this.val);
             this.$set(this.component, this.name, this.value);
 
-            this.$events.listen('input', (event) => {
+            this.$UIevents.listen('input', (event) => {
                 if (this.manuallyChanged == false && event.id == this.watch) {
                     let value = this.slugify(event.value);
                     this.value = value;

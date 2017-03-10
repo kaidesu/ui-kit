@@ -28,7 +28,7 @@
         },
 
         created() {
-            this.$events.listen('toggle.collapse.' + this.id, () => {
+            this.$UIevents.listen('toggle.collapse.' + this.id, () => {
                 this.toggle();
             });
         },

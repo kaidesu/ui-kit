@@ -41,23 +41,23 @@
             });
 
             this.dropzone.on('addedfile', function(file) {
-                vm.$events.fire('dropzone-fileadded', file);
+                vm.$UIevents.fire('dropzone-fileadded', file);
             });
 
             this.dropzone.on('removedfile', function(file) {
-                vm.$events.fire('dropzone-fileremoved', file);
+                vm.$UIevents.fire('dropzone-fileremoved', file);
             });
 
             this.dropzone.on('success', function(file, response) {
-                vm.$events.fire('dropzone-succcess', file, response);
+                vm.$UIevents.fire('dropzone-succcess', file, response);
             });
 
             this.dropzone.on('error', function(file, error, xhr) {
-                vm.$events.fire('dropzone-error', file, error, xhr);
+                vm.$UIevents.fire('dropzone-error', file, error, xhr);
             });
 
             this.dropzone.on('sending', function(file, xhr, formData) {
-                vm.$events.fire('dropzone-sending', file, xhr, formData);
+                vm.$UIevents.fire('dropzone-sending', file, xhr, formData);
             });
         }
     }

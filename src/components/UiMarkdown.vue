@@ -72,7 +72,7 @@
         },
 
         created() {
-            this.$events.listen('input', (event) => {
+            this.$UIevents.listen('input', (event) => {
                 if (event.id == this.name) {
                     let preview = marked(event.value, {
                         sanitize: true

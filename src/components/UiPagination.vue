@@ -48,7 +48,7 @@
 		},
 		methods: {
 			goToPage(page) {
-				this.$events.fire('page-changed', page);
+				this.$UIevents.fire('page-changed', page);
 			}
 		}
 	}

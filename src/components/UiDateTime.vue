@@ -69,7 +69,7 @@
 
                 this.value = value;
 
-                this.$events.fire('input', {
+                this.$UIevents.fire('input', {
                     id: this.name,
                     value: this.value
                 });

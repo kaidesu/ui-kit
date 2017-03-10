@@ -54,21 +54,21 @@
             toggleDropdown(event) {
                 var showing = this.show;
 
-                this.$events.fire('hide.dropdown');
+                this.$UIevents.fire('hide.dropdown');
 
                 this.show = ! showing;
 
                 if (this.show) {
-                    this.$events.fire('show.dropdown');
+                    this.$UIevents.fire('show.dropdown');
                     event.stopPropagation();
                 } else {
-                    this.$events.fire('hidden.dropdown');
+                    this.$UIevents.fire('hidden.dropdown');
                 }
             }
         },
 
         created() {
-            this.$events.on('hide.dropdown', () => {
+            this.$UIevents.on('hide.dropdown', () => {
                 this.show = false;
             });
         }

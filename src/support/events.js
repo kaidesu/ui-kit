@@ -4,7 +4,7 @@ function plugin(Vue) {
         return;
     }
 
-    const events = new Vue({
+    const UIevents = new Vue({
         methods: {
             fire(name, data = null) {
                 this.emit(name, data)
@@ -28,20 +28,20 @@ function plugin(Vue) {
         }
     });
 
-    Object.defineProperty(Vue.prototype, '$events', {
+    Object.defineProperty(Vue.prototype, '$UIevents', {
         get() {
-            return events;
+            return UIevents;
         }
     });
 
     Vue.mixin({
 
         beforeCreate() {
-            if (typeof this.$options.events != 'object') return;
+            if (typeof this.$options.UIevents != 'object') return;
 
             this.$on('hook:beforeMount', () => {
-                for (var key in this.$options.events) {
-                    events.on(key, this.$options.events[key].bind(this));
+                for (var key in this.$options.UIevents) {
+                    UIevents.on(key, this.$options.UIevents[key].bind(this));
                 }
             });
         }

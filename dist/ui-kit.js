@@ -44787,7 +44787,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.$events.listen('toggle.collapse.' + this.id, function () {
+        this.$UIevents.listen('toggle.collapse.' + this.id, function () {
             _this.toggle();
         });
     }
@@ -44871,7 +44871,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.value = value;
 
-            this.$events.fire('input', {
+            this.$UIevents.fire('input', {
                 id: this.name,
                 value: this.value
             });
@@ -44955,15 +44955,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         toggleDropdown: function toggleDropdown(event) {
             var showing = this.show;
 
-            this.$events.fire('hide.dropdown');
+            this.$UIevents.fire('hide.dropdown');
 
             this.show = !showing;
 
             if (this.show) {
-                this.$events.fire('show.dropdown');
+                this.$UIevents.fire('show.dropdown');
                 event.stopPropagation();
             } else {
-                this.$events.fire('hidden.dropdown');
+                this.$UIevents.fire('hidden.dropdown');
             }
         }
     },
@@ -44971,7 +44971,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.$events.on('hide.dropdown', function () {
+        this.$UIevents.on('hide.dropdown', function () {
             _this.show = false;
         });
     }
@@ -45026,23 +45026,23 @@ Dropzone.autoDiscover = false;
         });
 
         this.dropzone.on('addedfile', function (file) {
-            vm.$events.fire('dropzone-fileadded', file);
+            vm.$UIevents.fire('dropzone-fileadded', file);
         });
 
         this.dropzone.on('removedfile', function (file) {
-            vm.$events.fire('dropzone-fileremoved', file);
+            vm.$UIevents.fire('dropzone-fileremoved', file);
         });
 
         this.dropzone.on('success', function (file, response) {
-            vm.$events.fire('dropzone-succcess', file, response);
+            vm.$UIevents.fire('dropzone-succcess', file, response);
         });
 
         this.dropzone.on('error', function (file, error, xhr) {
-            vm.$events.fire('dropzone-error', file, error, xhr);
+            vm.$UIevents.fire('dropzone-error', file, error, xhr);
         });
 
         this.dropzone.on('sending', function (file, xhr, formData) {
-            vm.$events.fire('dropzone-sending', file, xhr, formData);
+            vm.$UIevents.fire('dropzone-sending', file, xhr, formData);
         });
     }
 };
@@ -45298,7 +45298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.value = value;
 
-            this.$events.fire('input', {
+            this.$UIevents.fire('input', {
                 id: this.name,
                 value: this.value
             });
@@ -45532,7 +45532,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.$events.listen('input', function (event) {
+        this.$UIevents.listen('input', function (event) {
             if (event.id == _this.name) {
                 var preview = __WEBPACK_IMPORTED_MODULE_0_marked___default()(event.value, {
                     sanitize: true
@@ -45668,7 +45668,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        this.$events.listen('toggle.modal.' + this.id, function () {
+        this.$UIevents.listen('toggle.modal.' + this.id, function () {
             _this.show = !_this.show;
         });
     }
@@ -45762,7 +45762,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}
 		},
 		clickNode: function clickNode(value) {
-			this.$events.fire('nodeClicked', { 'name': this.reference, 'value': value });
+			this.$UIevents.fire('nodeClicked', { 'name': this.reference, 'value': value });
 		},
 		editNode: function editNode(id) {
 			console.log('TODO: editNode');
@@ -46092,7 +46092,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	methods: {
 		goToPage: function goToPage(page) {
-			this.$events.fire('page-changed', page);
+			this.$UIevents.fire('page-changed', page);
 		}
 	}
 };
@@ -46200,7 +46200,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.value = value;
             this.styles.width = value + '%';
 
-            this.$events.fire('input', {
+            this.$UIevents.fire('input', {
                 id: this.name,
                 value: this.value
             });
@@ -46312,7 +46312,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.value = value;
 
-            this.$events.fire('input', {
+            this.$UIevents.fire('input', {
                 id: this.name,
                 value: this.value
             });
@@ -46424,7 +46424,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.value = this.slugify(this.val);
         this.$set(this.component, this.name, this.value);
 
-        this.$events.listen('input', function (event) {
+        this.$UIevents.listen('input', function (event) {
             if (_this.manuallyChanged == false && event.id == _this.watch) {
                 var value = _this.slugify(event.value);
                 _this.value = value;
@@ -46747,7 +46747,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		clearSelection: function clearSelection() {
-			this.$events.fire('nodeClicked', { 'name': this.reference, 'value': '' });
+			this.$UIevents.fire('nodeClicked', { 'name': this.reference, 'value': '' });
 		},
 		fetchSourceData: function fetchSourceData() {
 			var _this = this;
@@ -46777,7 +46777,7 @@ function plugin(Vue) {
         return;
     }
 
-    var events = new Vue({
+    var UIevents = new Vue({
         methods: {
             fire: function fire(name) {
                 var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -46801,9 +46801,9 @@ function plugin(Vue) {
         }
     });
 
-    Object.defineProperty(Vue.prototype, '$events', {
+    Object.defineProperty(Vue.prototype, '$UIevents', {
         get: function get() {
-            return events;
+            return UIevents;
         }
     });
 
@@ -46811,11 +46811,11 @@ function plugin(Vue) {
         beforeCreate: function beforeCreate() {
             var _this = this;
 
-            if (_typeof(this.$options.events) != 'object') return;
+            if (_typeof(this.$options.UIevents) != 'object') return;
 
             this.$on('hook:beforeMount', function () {
-                for (var key in _this.$options.events) {
-                    events.on(key, _this.$options.events[key].bind(_this));
+                for (var key in _this.$options.UIevents) {
+                    UIevents.on(key, _this.$options.UIevents[key].bind(_this));
                 }
             });
         }
@@ -68611,7 +68611,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "click": function($event) {
-        _vm.$events.fire('toggle.modal.' + _vm.id)
+        _vm.$UIevents.fire('toggle.modal.' + _vm.id)
       }
     }
   }, [_c('span', {

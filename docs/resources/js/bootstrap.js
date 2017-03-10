@@ -20,8 +20,6 @@ Vue.directive('highlightjs', {
                 target.innerHTML = _.escape(binding.value);
             }
 
-            console.log(target.innerHTML);
-
             hljs.highlightBlock(target);
         });
     },

@@ -56,7 +56,7 @@
 		},
 		methods: {
 			clearSelection() {
-				this.$events.fire('nodeClicked', { 'name': this.reference, 'value': '' });
+				this.$UIevents.fire('nodeClicked', { 'name': this.reference, 'value': '' });
 			},
 			fetchSourceData() {
 				axios.get(`${this.source}`)

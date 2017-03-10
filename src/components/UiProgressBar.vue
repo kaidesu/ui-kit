@@ -77,7 +77,7 @@
                 this.value = value;
                 this.styles.width = value + '%';
 
-                this.$events.fire('input', {
+                this.$UIevents.fire('input', {
                     id: this.name,
                     value: this.value
                 });
