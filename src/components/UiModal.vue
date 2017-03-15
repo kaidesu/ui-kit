@@ -51,20 +51,8 @@
             id: {
                 type: String
             },
-            okText: {
-                type: String,
-                default: "Save"
-            },
-            cancelText: {
-                type: String,
-                default: "Cancel"
-            },
             title: {
                 type: String
-            },
-            callback: {
-                type: Function,
-                default() {}
             },
             large: {
                 type: Boolean,

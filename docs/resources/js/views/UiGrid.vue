@@ -37,13 +37,7 @@
 </template>
 
 <script>
-    import UiGrid from '../../../../src/components/UiGrid';
-
     export default {
-        name: 'view-ui-grid',
-
-        components: {
-            UiGrid
-        }
+        name: 'view-ui-grid'
     }
 </script>

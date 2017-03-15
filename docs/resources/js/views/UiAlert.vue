@@ -115,17 +115,7 @@
 </template>
 
 <script>
-    import UiAlert from '../../../../src/components/UiAlert';
-    import UiTabs from '../../../../src/components/UiTabs';
-    import UiTab from '../../../../src/components/UiTab';
-
     export default {
-        name: 'view-ui-alert',
-
-        components: {
-            UiAlert,
-            UiTab,
-            UiTabs
-        }
+        name: 'view-ui-alert'
     }
 </script>

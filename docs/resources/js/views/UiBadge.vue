@@ -90,17 +90,7 @@
 </template>
 
 <script>
-    import UiBadge from '../../../../src/components/UiBadge';
-    import UiTabs from '../../../../src/components/UiTabs';
-    import UiTab from '../../../../src/components/UiTab';
-
     export default {
-        name: 'view-ui-badge',
-
-        components: {
-            UiBadge,
-            UiTab,
-            UiTabs
-        }
+        name: 'view-ui-badge'
     }
 </script>

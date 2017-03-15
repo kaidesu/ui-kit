@@ -91,17 +91,7 @@
 </template>
 
 <script>
-    import UiGraph from '../../../../src/components/UiGraph';
-    import UiTabs from '../../../../src/components/UiTabs';
-    import UiTab from '../../../../src/components/UiTab';
-
     export default {
-        name: 'view-ui-graph',
-
-        components: {
-            UiGraph,
-            UiTab,
-            UiTabs
-        }
+        name: 'view-ui-graph'
     }
 </script>

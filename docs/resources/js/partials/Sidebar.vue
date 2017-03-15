@@ -14,6 +14,7 @@
             <li class="nav-link"><router-link to="/ui-badge">UiBadge</router-link></li>
             <li class="nav-link"><router-link to="/ui-graph">UiGraph</router-link></li>
             <li class="nav-link"><router-link to="/ui-grid">UiGrid</router-link></li>
+            <li class="nav-link"><router-link to="/ui-modal">UiModal</router-link></li>
 
             <li class="nav-item">Graphs</li>
             <li class="nav-link"><router-link to="/graphs">Introduction</router-link></li>

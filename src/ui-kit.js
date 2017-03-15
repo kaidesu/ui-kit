@@ -1,3 +1,12 @@
+// Support
+import UIEvents from './support/events.js';
+
+// Directives
+import vCollapse from './directives/collapse.js'
+import vModal from './directives/modal.js';
+import vSortable from './directives/sortable.js';
+
+// Components
 import UiAlert from './components/UiAlert.vue';
 import UiBadge from './components/UiBadge.vue';
 import UiCollapse from './components/UiCollapse.vue';
@@ -26,8 +35,6 @@ import UiTab from './components/UiTab.vue';
 import UiTabs from './components/UiTabs.vue';
 import UiTooltip from './components/UiTooltip.vue';
 import UiTree from './components/UiTree.vue';
-
-import VueEvents from './support/events.js';
 
 const UIKit = {
     UiAlert,
@@ -60,6 +67,12 @@ const UIKit = {
     UiTree,
 
     install(Vue) {
+        Vue.use(UIEvents);
+
+        Vue.use(vCollapse);
+        Vue.use(vModal);
+        Vue.use(vSortable);
+
         Vue.component('ui-alert', UiAlert);
         Vue.component('ui-badge', UiBadge);
         Vue.component('ui-collapse', UiCollapse);
@@ -88,8 +101,6 @@ const UIKit = {
         Vue.component('ui-tabs', UiTabs);
         Vue.component('ui-tooltip', UiTooltip);
         Vue.component('ui-tree', UiTree);
-
-        Vue.use(VueEvents);
     }
 };
 

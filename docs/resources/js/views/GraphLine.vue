@@ -32,13 +32,7 @@
 </template>
 
 <script>
-    import UiGraph from '../../../../src/components/UiGraph';
-
     export default {
-        name: 'view-graph-line',
-
-        components: {
-            UiGraph
-        }
+        name: 'view-graph-line'
     }
 </script>
