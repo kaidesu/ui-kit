@@ -12,7 +12,7 @@
             <span v-html="name"></span>
         </button>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" :class="{'dropdown-menu-right': right}">
             <slot></slot>
         </div>
     </div>
@@ -45,6 +45,11 @@
             },
 
             small: {
+                type: Boolean,
+                default: false
+            },
+
+            right: {
                 type: Boolean,
                 default: false
             }
