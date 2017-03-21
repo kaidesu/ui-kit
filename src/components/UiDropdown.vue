@@ -12,7 +12,7 @@
             <span v-html="name"></span>
         </button>
 
-        <div class="dropdown-menu" :class="{'dropdown-menu-right': right}">
+        <div class="dropdown-menu" :class="{'dropdown-menu-right': rightAlign}">
             <slot></slot>
         </div>
     </div>
@@ -49,7 +49,7 @@
                 default: false
             },
 
-            right: {
+            rightAlign: {
                 type: Boolean,
                 default: false
             }
