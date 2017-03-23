@@ -1,12 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import UIKit from '../../../dist/ui-kit.js';
 import hljs from 'highlight.js';
 import _ from 'lodash';
 
 window.Vue = Vue;
 
-Vue.use(UIKit);
 Vue.use(VueRouter);
 
 Vue.directive('highlightjs', {

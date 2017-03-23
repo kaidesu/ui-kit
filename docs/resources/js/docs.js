@@ -1,5 +1,6 @@
 import './bootstrap';
 import router from './routes';
+import UIKit from '../../../dist/ui-kit.js';
 
 // Partials
 import Navbar from './partials/Navbar.vue';

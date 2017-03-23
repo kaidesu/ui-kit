@@ -178,6 +178,7 @@
 
         mounted() {
             autosize(this.$refs.textarea);
+            autosize.update(this.$refs.textarea);
         }
     }
 </script>

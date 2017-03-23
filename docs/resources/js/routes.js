@@ -8,6 +8,7 @@ let routes = [
     { path: '/ui-badge', component: require('./views/UiBadge') },
     { path: '/ui-graph', component: require('./views/UiGraph') },
     { path: '/ui-grid', component: require('./views/UiGrid') },
+    { path: '/ui-input', component: require('./views/UiInput') },
     { path: '/ui-modal', component: require('./views/UiModal') },
     { path: '/ui-wysiwyg', component: require('./views/UiWysiwyg')},
 
