@@ -22,7 +22,10 @@
 
 <script>
     import $ from 'jquery';
-    import redactor from '../../../vendors/redactor/redactor.js';
+    import redactor from '../vendors/redactor/redactor.js';
+    import inlinestyle from '../vendors/redactor/plugins/inlinestyle.js';
+    import source from '../vendors/redactor/plugins/source.js';
+    import table from '../vendors/redactor/plugins/table.js';
 
     export default {
         name: 'ui-wysiwyg',
@@ -65,34 +68,8 @@
         mounted() {
             let vm = this;
 
-            $.Redactor.prototype.iconic = function() {
-                return {
-                    init: function () {
-                        var icons = {
-                            'format': '<i class="fa fa-paragraph fa-fw"></i>',
-                            'lists': '<i class="fa fa-list fa-fw"></i>',
-                            'link': '<i class="fa fa-link fa-fw"></i>',
-                            'horizontalrule': '<i class="fa fa-minus fa-fw"></i>',
-                            'image': '<i class="fa fa-picture-o fa-fw"></i>',
-                            'html': '<i class="fa fa-code fa-fw"></i>',
-                            'table': '<i class="fa fa-table fa-fw"></i>',
-                            'properties': '<i class="fa fa-flask fa-fw"></i>',
-                            'alignment': '<i class="fa fa-align-center fa-fw"></i>'
-                        };
-
-                        $.each(this.button.all(), $.proxy(function(i,s) {
-                            var key = $(s).attr('rel');
-                            if (typeof icons[key] !== 'undefined') {
-                                var icon = icons[key];
-                                var button = this.button.get(key);
-                                this.button.setIcon(button, icon);
-                            }
-                        }, this));
-                    }
-                };
-            };
-
             $(this.$el).find('textarea').redactor({
+
                 callbacks: {
                     sync: function() {
                         vm.updateValue(this.code.get());
@@ -100,13 +77,14 @@
                 },
 
                 minHeight: 200,
-                plugins: ['alignment', 'source', 'table', 'properties', 'iconic'],
+
+                plugins: ['inlinestyle', 'source', 'table']
             });
         },
 
         methods: {
             updateValue(value) {
-                this.$set(this.component, this.name, value);
+                // this.$set(this.component, this.name, value);
 
                 this.value = value;
 

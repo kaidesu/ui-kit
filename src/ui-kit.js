@@ -35,6 +35,7 @@ import UiTab from './components/UiTab.vue';
 import UiTabs from './components/UiTabs.vue';
 import UiTooltip from './components/UiTooltip.vue';
 import UiTree from './components/UiTree.vue';
+import UiWysiwyg from './components/UiWysiwyg.vue';
 
 const UIKit = {
     UiAlert,
@@ -65,6 +66,7 @@ const UIKit = {
     UiTabs,
     UiTooltip,
     UiTree,
+    UiWysiwyg,
 
     install(Vue) {
         Vue.use(UIEvents);
@@ -101,6 +103,7 @@ const UIKit = {
         Vue.component('ui-tabs', UiTabs);
         Vue.component('ui-tooltip', UiTooltip);
         Vue.component('ui-tree', UiTree);
+        Vue.component('ui-wysiwyg', UiWysiwyg);
     }
 };
 
@@ -135,3 +138,4 @@ export { UiTab };
 export { UiTabs };
 export { UiTooltip };
 export { UiTree };
+export { UiWysiwyg };
