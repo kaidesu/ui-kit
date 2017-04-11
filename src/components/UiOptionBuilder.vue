@@ -135,7 +135,7 @@
 				let options = this.options;
 				options[index].checked = (options[index].checked ? 0 : 1);
 
-				this.options = Object.assign({}, this.options, options);
+				this.options = _.toArray(Object.assign({}, this.options, options));
 			},
 			uncheckAll(ev) {
 				let options = this.options;
@@ -144,7 +144,7 @@
 					options[key].checked = 0;
 				});
 
-				this.options = Object.assign({}, this.options, options);
+				this.options = _.toArray(Object.assign({}, this.options, options));
 			},
 			checkAll(ev) {
 				let options = this.options;
@@ -153,7 +153,7 @@
 					options[key].checked = 1;
 				});
 
-				this.options = Object.assign({}, this.options, options);
+				this.options = _.toArray(Object.assign({}, this.options, options));
 			},
 			addOption(ev) {
 				if (this.current) {
