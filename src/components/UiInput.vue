@@ -159,6 +159,8 @@
 
         watch: {
             value: function(newValue) {
+                autosize.update(this.$refs.textarea);
+
                 if (this.maxlength != null) {
                     this.count = this.maxlength - newValue.length;
 

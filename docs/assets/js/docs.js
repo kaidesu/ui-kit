@@ -15386,7 +15386,7 @@ var Dropzone=__webpack_require__(233);Dropzone.autoDiscover=false;/* harmony def
 //
 //
 /* harmony default export */__webpack_exports__["default"]={name:'ui-input',store:['component'],data:function data(){return{value:'',count:0};},props:{val:{type:String,default:''},large:{type:Boolean,default:false},small:{type:Boolean,default:false},horizontal:{type:Boolean,default:false},type:{type:String,default:'text'},title:{type:String,default:null},disabled:{type:Boolean,default:false},label:{type:String,default:null},name:{type:String,default:null},help:{type:String,default:null},placeholder:{type:String,default:null},readonly:{type:Boolean,default:false},required:{type:Boolean,default:false},rows:{type:Number,default:3},cols:{type:Number,default:20},maxlength:{type:Number,default:null},monospace:{type:Boolean,default:false}},computed:{styles:function styles(){var styling={};if(this.monospace==true){styling['font-family']='monospace';}return styling;}},methods:{updateValue:function updateValue(value){// this.$set(this.component, this.name, value);
-this.value=value;this.$UIevents.fire('input',{id:this.name,value:this.value});}},watch:{value:function value(newValue){if(this.maxlength!=null){this.count=this.maxlength-newValue.length;if(this.count>this.maxlength){return newValue.substring(0,this.maxlength);}}}},created:function created(){this.value=this.val;this.count=this.maxlength;this.updateValue(this.value);},mounted:function mounted(){__WEBPACK_IMPORTED_MODULE_0_autosize___default()(this.$refs.textarea);__WEBPACK_IMPORTED_MODULE_0_autosize___default.a.update(this.$refs.textarea);}};/***/},/* 156 *//***/function(module,__webpack_exports__,__webpack_require__){"use strict";Object.defineProperty(__webpack_exports__,"__esModule",{value:true});//
+this.value=value;this.$UIevents.fire('input',{id:this.name,value:this.value});}},watch:{value:function value(newValue){__WEBPACK_IMPORTED_MODULE_0_autosize___default.a.update(this.$refs.textarea);if(this.maxlength!=null){this.count=this.maxlength-newValue.length;if(this.count>this.maxlength){return newValue.substring(0,this.maxlength);}}}},created:function created(){this.value=this.val;this.count=this.maxlength;this.updateValue(this.value);},mounted:function mounted(){__WEBPACK_IMPORTED_MODULE_0_autosize___default()(this.$refs.textarea);__WEBPACK_IMPORTED_MODULE_0_autosize___default.a.update(this.$refs.textarea);}};/***/},/* 156 *//***/function(module,__webpack_exports__,__webpack_require__){"use strict";Object.defineProperty(__webpack_exports__,"__esModule",{value:true});//
 //
 //
 //
@@ -15575,7 +15575,7 @@ var _=__webpack_require__(7);/* harmony default export */__webpack_exports__["de
 //
 //
 //
-/* harmony default export */__webpack_exports__["default"]={data:function data(){return{label:'',value:'',options:[]};},props:{multiCheck:{type:Boolean,default:false},savedOptions:{type:Array,default:function _default(){return[];}}},computed:{allChecked:function allChecked(){return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.size(this.options)>0&&__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.every(this.options,['checked',1]);},someChecked:function someChecked(){return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.some(this.options,['checked',1]);},current:{get:function get(){if(this.label||this.value){return{label:this.label!=''?this.label:this.value,value:this.value!=''?this.value:this.label,checked:0};}return false;},set:function set(value){this.label=value;this.value=value;}}},watch:{multiCheck:function multiCheck(value){if(!value){this.uncheckAll();}}},methods:{toggleOption:function toggleOption(index,ev){if(!this.multiCheck){this.uncheckAll();}var options=this.options;options[index].checked=options[index].checked?0:1;this.options=Object.assign({},this.options,options);},uncheckAll:function uncheckAll(ev){var options=this.options;__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(options,function(value,key){options[key].checked=0;});this.options=Object.assign({},this.options,options);},checkAll:function checkAll(ev){var options=this.options;__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(options,function(value,key){options[key].checked=1;});this.options=Object.assign({},this.options,options);},addOption:function addOption(ev){if(this.current){document.getElementById('option-builder-label').focus();this.options.push(this.current);this.current='';}},clearOption:function clearOption(ev){this.current='';},removeOption:function removeOption(index){this.options.splice(index,1);},moveOptionUp:function moveOptionUp(index){var from=index;var to=index-1;this.options.splice(to,0,this.options.splice(from,1)[0]);},moveOptionDown:function moveOptionDown(index){var from=index;var to=index+1;this.options.splice(to,0,this.options.splice(from,1)[0]);}},created:function created(){var _this=this;__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(this.savedOptions,function(option,key){_this.options.push({label:option.label,value:option.value,checked:option.checked?1:0});});}};/***/},/* 163 *//***/function(module,__webpack_exports__,__webpack_require__){"use strict";Object.defineProperty(__webpack_exports__,"__esModule",{value:true});//
+/* harmony default export */__webpack_exports__["default"]={data:function data(){return{label:'',value:'',options:[]};},props:{multiCheck:{type:Boolean,default:false},savedOptions:{type:Array,default:function _default(){return[];}}},computed:{allChecked:function allChecked(){return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.size(this.options)>0&&__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.every(this.options,['checked',1]);},someChecked:function someChecked(){return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.some(this.options,['checked',1]);},current:{get:function get(){if(this.label||this.value){return{label:this.label!=''?this.label:this.value,value:this.value!=''?this.value:this.label,checked:0};}return false;},set:function set(value){this.label=value;this.value=value;}}},watch:{multiCheck:function multiCheck(value){if(!value){this.uncheckAll();}}},methods:{toggleOption:function toggleOption(index,ev){if(!this.multiCheck){this.uncheckAll();}var options=this.options;options[index].checked=options[index].checked?0:1;this.options=__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.toArray(Object.assign({},this.options,options));},uncheckAll:function uncheckAll(ev){var options=this.options;__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(options,function(value,key){options[key].checked=0;});this.options=__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.toArray(Object.assign({},this.options,options));},checkAll:function checkAll(ev){var options=this.options;__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(options,function(value,key){options[key].checked=1;});this.options=__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.toArray(Object.assign({},this.options,options));},addOption:function addOption(ev){if(this.current){document.getElementById('option-builder-label').focus();this.options.push(this.current);this.current='';}},clearOption:function clearOption(ev){this.current='';},removeOption:function removeOption(index){this.options.splice(index,1);},moveOptionUp:function moveOptionUp(index){var from=index;var to=index-1;this.options.splice(to,0,this.options.splice(from,1)[0]);},moveOptionDown:function moveOptionDown(index){var from=index;var to=index+1;this.options.splice(to,0,this.options.splice(from,1)[0]);}},created:function created(){var _this=this;__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(this.savedOptions,function(option,key){_this.options.push({label:option.label,value:option.value,checked:option.checked?1:0});});}};/***/},/* 163 *//***/function(module,__webpack_exports__,__webpack_require__){"use strict";Object.defineProperty(__webpack_exports__,"__esModule",{value:true});//
 //
 //
 //
@@ -18153,6 +18153,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     name: 'partial-sidebar'
@@ -19059,7 +19060,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.directive('highlightjs', {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(2);
 
 
-var routes = [{ path: '/', component: __webpack_require__(200) }, { path: '/usage', component: __webpack_require__(208) }, { path: '/ui-alert', component: __webpack_require__(201) }, { path: '/ui-badge', component: __webpack_require__(202) }, { path: '/ui-graph', component: __webpack_require__(203) }, { path: '/ui-grid', component: __webpack_require__(204) }, { path: '/ui-input', component: __webpack_require__(205) }, { path: '/ui-modal', component: __webpack_require__(206) }, { path: '/ui-wysiwyg', component: __webpack_require__(207) }, { path: '/graphs', component: __webpack_require__(199) }, { path: '/graph-line', component: __webpack_require__(198) }];
+var routes = [{ path: '/', component: __webpack_require__(200) }, { path: '/usage', component: __webpack_require__(208) }, { path: '/ui-alert', component: __webpack_require__(201) }, { path: '/ui-badge', component: __webpack_require__(202) }, { path: '/ui-graph', component: __webpack_require__(203) }, { path: '/ui-grid', component: __webpack_require__(204) }, { path: '/ui-input', component: __webpack_require__(205) }, { path: '/ui-markdown', component: __webpack_require__(233) }, { path: '/ui-modal', component: __webpack_require__(206) }, { path: '/ui-wysiwyg', component: __webpack_require__(207) }, { path: '/graphs', component: __webpack_require__(199) }, { path: '/graph-line', component: __webpack_require__(198) }];
 
 /* harmony default export */ __webpack_exports__["a"] = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     routes: routes
@@ -53258,6 +53259,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "nav-link"
   }, [_c('router-link', {
     attrs: {
+      "to": "/ui-markdown"
+    }
+  }, [_vm._v("UiMarkdown")])], 1), _vm._v(" "), _c('li', {
+    staticClass: "nav-link"
+  }, [_c('router-link', {
+    attrs: {
       "to": "/ui-modal"
     }
   }, [_vm._v("UiModal")])], 1), _vm._v(" "), _c('li', {
@@ -63292,6 +63299,162 @@ module.exports = function(module) {
 __webpack_require__(4);
 module.exports = __webpack_require__(5);
 
+
+/***/ }),
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    name: 'view-ui-wysiwyg'
+};
+
+/***/ }),
+/* 233 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(232),
+  /* template */
+  __webpack_require__(234),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/Kai/Code/ui-kit/docs/resources/js/views/UiMarkdown.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] UiMarkdown.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c0ff834c", Component.options)
+  } else {
+    hotAPI.reload("data-v-c0ff834c", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 234 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('h1', [_vm._v("UiMarkdown")]), _vm._v(" "), _c('p', {
+    staticClass: "lead"
+  }, [_vm._v("Provide an editor to write in markdown, a minimal syntax for marking up documents with formatting, using puncuation and special characters.")]), _vm._v(" "), _c('h3', [_vm._v("Examples")]), _vm._v(" "), _c('div', {
+    staticClass: "ui-example"
+  }, [_c('ui-markdown', {
+    attrs: {
+      "name": "example",
+      "val": "\nInventors have long dreamed of creating machines that think. This desire dates back to at least the time of ancient Greece. The mythical figures Pygmalion Daedalus, and Hephaestus may all be interpreted as legendary inventors, and Galatea, Talos, and Pandora may all be regarded as artificial life \\(_Ovid and Martin, 2004; Sparkes, 1996; Tandy, 1997_\\).\n\nWhen programmable computers were first conceived, people wondered whether such machines might become intelligent, over a hundred years before one was built \\(Lovelace, 1842\\). Today, **artificial intelligence **\\(AI\\) is a thriving field with many practical applications and active research topics. We look to intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research.\n\nIn the early days of artificial intelligence, the field rapidly tackled and solved problems that are intellectually difficult for human beings but relatively straight-forward for computers -- problems that can be described by a list of formal, mathematical rules. The true challenge to artificial intelligence proved to be solving the tasks that are easy for people to perform but hard for people to describe formally -- problems that we solve intuitively, that feel automatic, like recognizing spoken words or faces in images.\n            "
+    }
+  })], 1), _vm._v(" "), _c('div', {
+    staticClass: "highlight"
+  }, [_c('pre', {
+    directives: [{
+      name: "highlightjs",
+      rawName: "v-highlightjs"
+    }]
+  }, [_c('code', {
+    staticClass: "html"
+  }, [_vm._v("\n\n            ")])])]), _vm._v(" "), _c('h3', [_vm._v("API")]), _vm._v(" "), _c('div', {
+    staticClass: "pt-3"
+  }, [_c('ui-tabs', [_c('ui-tab', {
+    attrs: {
+      "name": "Props"
+    }
+  }, [_c('div', {
+    staticClass: "pt-3"
+  }, [_c('table', {
+    staticClass: "table"
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Type")]), _vm._v(" "), _c('th', [_vm._v("Default")]), _vm._v(" "), _c('th', [_vm._v("Description")])])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("name")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td', [_c('i', [_vm._v("Required")])]), _vm._v(" "), _c('td', [_c('p', [_vm._v("The name of the Markdown field.")])])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("val")]), _vm._v(" "), _c('td', [_vm._v("String")]), _vm._v(" "), _c('td'), _vm._v(" "), _c('td', [_c('p', [_vm._v("The initial value to be passed through when creating a new instance of the Markdown editor.")])])])])])])])], 1)], 1)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-c0ff834c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

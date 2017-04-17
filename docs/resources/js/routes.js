@@ -9,6 +9,7 @@ let routes = [
     { path: '/ui-graph', component: require('./views/UiGraph') },
     { path: '/ui-grid', component: require('./views/UiGrid') },
     { path: '/ui-input', component: require('./views/UiInput') },
+    { path: '/ui-markdown', component: require('./views/UiMarkdown') },
     { path: '/ui-modal', component: require('./views/UiModal') },
     { path: '/ui-wysiwyg', component: require('./views/UiWysiwyg')},
 
