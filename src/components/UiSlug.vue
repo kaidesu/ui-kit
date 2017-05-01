@@ -77,11 +77,8 @@
 
             slugify(value) {
                 return value.toString().toLowerCase()
-                    .replace(/\s+/g, this.delimiter)    // Replace spaces with delimiter
-                    .replace(/[^\w\-]+/g, '')           // Remove all non-word characters
-                    .replace(/\-\-+/g, this.delimiter)  // Replace multiple delimiters with a single one
-                    .replace(/^-+/, '')                 // Trim from beginning of value
-                    .replace(/-+$/, '');                // Trim from ending of value
+                    .replace(/([^\w]|[_])+/g, ' ')          // Convert all non-word characters to single space
+                    .replace(/\s+/g, this.delimiter);       // Convert spaces with delimiter
             }
         },
 
