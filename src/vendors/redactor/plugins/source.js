@@ -120,6 +120,7 @@
 				this.button.enableAll();
 				this.core.editor().show().focus();
 				this.selection.restore();
+				this.placeholder.enable();
 
                 this.core.callback('visual');
 			},
