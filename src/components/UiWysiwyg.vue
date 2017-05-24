@@ -11,7 +11,7 @@
                 :id="name"
                 :placeholder="placeholder"
                 :value="value"
-
+                
                 @input="updateValue($event.target.value)"
                 ></textarea>
 
@@ -63,12 +63,37 @@
                 type: String,
                 default: null
             },
+            toolbarFixed: {
+                type: Boolean,
+                default: false,
+            },
+            structure: {
+                type: Boolean,
+                default: false
+            },
+            replaceDivs: {
+                type: Boolean,
+                default: false
+            },
+            linebreaks: {
+                type: Boolean,
+                default: false
+            },
+            overrideStyles: {
+                type: Boolean,
+                default: false
+            }
         },
 
         mounted() {
             let vm = this;
 
             $(this.$el).find('textarea').redactor({
+                toolbarFixed: this.toolbarFixed,
+                structure: this.structure,
+                replaceDivs: this.replaceDivs,
+                linebreaks: this.linebreaks,
+                overrideStyles: this.overrideStyles,
 
                 callbacks: {
                     sync: function() {
