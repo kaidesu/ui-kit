@@ -46059,10 +46059,12 @@ Dropzone.autoDiscover = false;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_chart_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__support_graph_tooltip_js__ = __webpack_require__(306);
 //
 //
 //
 //
+
 
 
 
@@ -46081,7 +46083,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         values: {
+            type: Object,
+            default: [],
             required: true
+        },
+
+        options: {
+            type: Object,
+            default: function _default() {
+                return {
+                    responsive: true
+                };
+            }
         }
     },
 
@@ -46093,9 +46106,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             data: this.values,
 
-            options: {
-                responsive: true
-            }
+            options: this.options
+
         });
     }
 });
@@ -81803,6 +81815,83 @@ module.exports = function listToStyles (parentId, list) {
 __webpack_require__(134);
 module.exports = __webpack_require__(135);
 
+
+/***/ }),
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {function graphTooltip(tooltipModel) {
+    // Tooltip Element
+    var tooltipEl = document.getElementById('chartjs-tooltip');
+
+    // Create element on first render
+    if (!tooltipEl) {
+        tooltipEl = document.createElement('div');
+        tooltipEl.id = 'chartjs-tooltip';
+        tooltipEl.innerHTML = '<div class="h-100 d-flex flex-column justify-content-center"></div>';
+        $('.ui-example').append(tooltipEl);
+    }
+
+    // Hide if no tooltip
+    if (tooltipModel.opacity === 0) {
+        tooltipEl.style.opacity = 0;
+        return;
+    }
+
+    // Set caret Position
+    tooltipEl.classList.remove('above', 'below');
+    if (tooltipModel.yAlign) {
+        tooltipEl.classList.add(tooltipModel.yAlign);
+    } else {
+        tooltipEl.classList.add('no-transform');
+    }
+
+    function getBody(bodyItem) {
+        return bodyItem.lines;
+    }
+
+    // Set Text
+    if (tooltipModel.body) {
+        var titleLines = tooltipModel.title || [];
+        var bodyLines = tooltipModel.body.map(getBody);
+
+        var innerHtml = '<div>';
+
+        titleLines.forEach(function (title) {
+            innerHtml += '<div><h6 class="text-uppercase"><strong>' + title + '</strong></h6></div>';
+        });
+
+        innerHtml += '<div><ul class="list-unstyled">';
+
+        bodyLines.forEach(function (body, i) {
+            innerHtml += '<li>' + body + '</li>';
+        });
+        innerHtml += '</ul></div></div>';
+
+        var tableRoot = tooltipEl.querySelector('div');
+        tableRoot.innerHTML = innerHtml;
+    }
+
+    // `this` will be the overall tooltip
+    var position = this._chart.canvas;
+
+    // Display, position, and set styles for font
+    tooltipEl.style.opacity = 1;
+
+    tooltipEl.style.left = position.offsetLeft + tooltipModel.caretX + 'px';
+    tooltipEl.style.top = '0';
+    tooltipEl.style.fontFamily = tooltipModel._fontFamily;
+    tooltipEl.style.fontSize = tooltipModel.fontSize;
+    tooltipEl.style.fontStyle = tooltipModel._fontStyle;
+    tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
+}
+
+/* unused harmony default export */ var _unused_webpack_default_export = (graphTooltip);
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ })
 /******/ ]);
