@@ -19,7 +19,7 @@
                             borderColor: 'rgba(75,192,192,1)',
                             pointBorderColor: 'rgba(75,192,192,1)',
                             pointBackgroundColor: '#fff',
-                            pointBorderWidth: 3,
+                            pointBorderWidth: 0,
                             pointHoverRadius: 6,
                             pointHoverBackgroundColor: 'rgba(75,192,192,1)',
                             pointHoverBorderColor: 'rgba(220,220,220,1)',
@@ -81,6 +81,17 @@
                                         <p>The values or dataset for the given chart. Read more details within the respective <router-link to="/graphs">Graph Documentation</router-link> section.</p>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td>options</td>
+                                    <td>Object</td>
+                                    <td>
+                                        <code>responsive: true</code>
+                                    </td>
+                                    <td>
+                                        <p>The options for the given chart. Read more details within the respective <router-link to="/graphs">Graph Documentation</router-link> section.</p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -91,7 +102,15 @@
 </template>
 
 <script>
+    import graphTooltip from '../../../../src/support/graph-tooltip.js';
+
     export default {
-        name: 'view-ui-graph'
+        name: 'view-ui-graph',
+
+        data: function() {
+            return {
+                graphTooltip: graphTooltip
+            }
+        }
     }
 </script>
