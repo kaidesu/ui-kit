@@ -4,6 +4,7 @@
 
 <script>
     import Chart from 'chart.js';
+    import graphTooltip from '../support/graph-tooltip.js';
 
     export default {
         name: 'ui-graph',
@@ -20,7 +21,18 @@
             },
 
             values: {
+                type: Object,
+                default: [],
                 required: true
+            },
+
+            options: {
+                type: Object,
+                default: function () {
+                    return { 
+                        responsive: true
+                    }
+                }
             }
         },
 
@@ -32,10 +44,9 @@
 
                 data: this.values,
 
-                options: {
-                    responsive: true
-                }
+                options: this.options
+                
             });
-        }
+        },
     }
 </script>
