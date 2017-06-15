@@ -1,0 +1,83 @@
+$height: 22px;
+$margin: 3px;
+
+.btn-toggle {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 10px;
+  cursor: pointer;
+
+  .btn-toggle-switch {
+    display: none;
+  }
+
+  .btn-toggle-label {
+    position: absolute;
+    top: 0;
+    font-weight: 600px;
+    color: white;
+
+    &.toggle-label-left {
+      left: 10px;
+    }
+
+    &.toggle-label-right {
+      right: 10px;
+    }
+  }
+
+  .btn-toggle-body {
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    outline: 0;
+    box-sizing: border-box;
+    background: #ff0000;
+    user-select: none;
+
+    &:before {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      transform: translate($margin, $margin);
+      transition: transform .3s;
+
+      background-color: #fff;
+      content: '';
+    }
+  }
+
+  &.toggled {
+    .btn-toggle-body:before {
+      transform: translate(30px, $margin);
+      transform: translate(var(--d), $margin);
+    }
+  }
+}
+
+.btn-toggle {
+  line-height: var(--h);
+  height: var(--h);
+
+  .btn-toggle-label {
+    line-height: var(--h);
+    height: var(--h);
+  }
+
+  .btn-toggle-body {
+    width: 50px;
+    width: var(--w);
+    height: var(--h);
+
+    &:before {
+      width: calc(var(--h) - 6px);
+      height: calc(var(--h) - 6px);
+    }
+  }
+}

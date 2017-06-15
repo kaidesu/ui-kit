@@ -33,6 +33,7 @@ import UiSelect from './components/UiSelect.vue';
 import UiSlug from './components/UiSlug.vue';
 import UiTab from './components/UiTab.vue';
 import UiTabs from './components/UiTabs.vue';
+import UiToggle from './components/UiToggle.vue';
 import UiTooltip from './components/UiTooltip.vue';
 import UiTree from './components/UiTree.vue';
 import UiWysiwyg from './components/UiWysiwyg.vue';
@@ -64,6 +65,7 @@ const UIKit = {
     UiSlug,
     UiTab,
     UiTabs,
+    UiToggle,
     UiTooltip,
     UiTree,
     UiWysiwyg,
@@ -101,6 +103,7 @@ const UIKit = {
         Vue.component('ui-slug', UiSlug);
         Vue.component('ui-tab', UiTab);
         Vue.component('ui-tabs', UiTabs);
+        Vue.component('ui-toggle', UiToggle);
         Vue.component('ui-tooltip', UiTooltip);
         Vue.component('ui-tree', UiTree);
         Vue.component('ui-wysiwyg', UiWysiwyg);
@@ -136,6 +139,7 @@ export { UiSelect };
 export { UiSlug };
 export { UiTab };
 export { UiTabs };
+export { UiToggle };
 export { UiTooltip };
 export { UiTree };
 export { UiWysiwyg };

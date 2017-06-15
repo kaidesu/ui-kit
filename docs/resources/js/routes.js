@@ -11,6 +11,7 @@ let routes = [
     { path: '/ui-input', component: require('./views/UiInput') },
     { path: '/ui-markdown', component: require('./views/UiMarkdown') },
     { path: '/ui-modal', component: require('./views/UiModal') },
+    { path: '/ui-toggle', component: require('./views/UiToggle') },
     { path: '/ui-wysiwyg', component: require('./views/UiWysiwyg')},
 
     { path: '/graphs', component: require('./views/Graphs') },

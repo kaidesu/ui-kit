@@ -102,15 +102,7 @@
 </template>
 
 <script>
-    import graphTooltip from '../../../../src/support/graph-tooltip.js';
-
     export default {
-        name: 'view-ui-graph',
-
-        data: function() {
-            return {
-                graphTooltip: graphTooltip
-            }
-        }
+        name: 'view-ui-graph'
     }
 </script>
