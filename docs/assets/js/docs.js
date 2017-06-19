@@ -15772,7 +15772,7 @@ var _=__webpack_require__(7);/* harmony default export */__webpack_exports__["de
 //
 //
 /* harmony default export */__webpack_exports__["default"]={name:'ui-slug',store:['component'],data:function data(){return{value:'',manuallyChanged:false};},props:{watch:{required:true,type:String},name:{type:String,default:'slug'},val:{type:String,default:''},help:{type:String,default:null},showHelp:{type:Boolean,default:true},label:{type:String,default:null},horizontal:{type:Boolean,default:false},delimiter:{type:String,default:'-'}},methods:{updateValue:function updateValue(value){value=this.slugify(value);this.$set(this.component,this.name,value);this.value=value;this.manuallyChanged=true;},slugify:function slugify(value){return value.toString().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/([^\w]|[_])+/g," "// Convert all non-word characters to single space
-).replace(/\s+/g,this.delimiter);// Convert spaces with delimiter
+).trim().replace(/\s+/g,this.delimiter);// Convert spaces with delimiter
 }},created:function created(){var _this=this;this.value=this.slugify(this.val);this.$set(this.component,this.name,this.value);this.$UIevents.listen('input',function(event){if(_this.manuallyChanged==false&&event.id==_this.watch){var value=_this.slugify(event.value);_this.value=value;_this.$set(_this.component,_this.name,value);}});}};/***/},/* 176 *//***/function(module,__webpack_exports__,__webpack_require__){"use strict";Object.defineProperty(__webpack_exports__,"__esModule",{value:true});//
 //
 //
