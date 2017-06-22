@@ -6,6 +6,8 @@
         <h3>Examples</h3>
         <div class="ui-example">
             <ui-input name="example1"></ui-input>
+            <ui-slug name="slug1" watch="example1"></ui-slug>
+            
             <ui-input name="example2" val="Hello Universe!" large></ui-input>
 
             <ui-input type="textarea" name="example3"></ui-input>

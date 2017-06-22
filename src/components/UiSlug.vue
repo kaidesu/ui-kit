@@ -77,7 +77,7 @@
 
             slugify(value) {
                 return value.toString().toLowerCase()
-                    .replace(/[.,\/#!$%\^&\*;:'{}=\-_`~()]/g, "")
+                    .replace(/[.,\/#!$%\^&\*;:'"{}=|<>`~()?]/g, "")
                     .replace(/([^\w]|[_])+/g, " ")          // Convert all non-word characters to single space
                     .trim()
                     .replace(/\s+/g, this.delimiter);       // Convert spaces with delimiter
@@ -87,12 +87,12 @@
         created() {
             this.value = this.slugify(this.val);
             this.$set(this.component, this.name, this.value);
-
+            
             this.$UIevents.listen('input', (event) => {
                 if (this.manuallyChanged == false && event.id == this.watch) {
                     let value = this.slugify(event.value);
                     this.value = value;
-
+            
                     this.$set(this.component, this.name, value);
                 }
             });

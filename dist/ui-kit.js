@@ -47913,7 +47913,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.manuallyChanged = true;
         },
         slugify: function slugify(value) {
-            return value.toString().toLowerCase().replace(/[.,\/#!$%\^&\*;:'{}=\-_`~()]/g, "").replace(/([^\w]|[_])+/g, " " // Convert all non-word characters to single space
+            return value.toString().toLowerCase().replace(/[.,\/#!$%\^&\*;:'"{}=|<>`~()?]/g, "").replace(/([^\w]|[_])+/g, " " // Convert all non-word characters to single space
             ).trim().replace(/\s+/g, this.delimiter); // Convert spaces with delimiter
         }
     },
