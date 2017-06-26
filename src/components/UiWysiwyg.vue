@@ -24,6 +24,7 @@
     import $ from 'jquery';
     import redactor from '../vendors/redactor/redactor.js';
     import inlinestyle from '../vendors/redactor/plugins/inlinestyle.js';
+    import fontsize from '../vendors/redactor/plugins/fontsize.js';
     import source from '../vendors/redactor/plugins/source.js';
     import table from '../vendors/redactor/plugins/table.js';
 
@@ -103,7 +104,7 @@
 
                 minHeight: 200,
 
-                plugins: ['inlinestyle', 'source', 'table']
+                plugins: ['inlinestyle', 'fontsize', 'source', 'table']
             });
         },
 

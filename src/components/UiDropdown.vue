@@ -7,7 +7,8 @@
                 'btn-danger': (type == 'danger'),
                 'btn-secondary': (type == 'secondary'),
                 'btn-lg': large,
-                'btn-sm': small
+                'btn-sm': small,
+                'btn-link': (type == 'link'),
             }">
             <span v-html="name"></span>
         </button>
