@@ -1,10 +1,11 @@
 <template>
     <div class="dropdown" :class="{ 'show': show }">
-        <button class="btn btn-primary dropdown-toggle" type="button" @click="toggleDropdown($event)" :class="{
+        <button class="btn dropdown-toggle" type="button" @click="toggleDropdown($event)" :class="{
                 'btn-success': (type == 'success'),
                 'btn-warning': (type == 'warning'),
                 'btn-info': (type == 'info'),
                 'btn-danger': (type == 'danger'),
+                'btn-primary': (type == 'primary'),
                 'btn-secondary': (type == 'secondary'),
                 'btn-lg': large,
                 'btn-sm': small,
