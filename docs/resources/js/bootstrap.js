@@ -2,8 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import hljs from 'highlight.js';
 import _ from 'lodash';
+import $ from 'jquery';
 
 window.Vue = Vue;
+window.jquery = window.jQuery = window.$ = $;
 
 Vue.use(VueRouter);
 

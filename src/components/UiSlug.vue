@@ -70,15 +70,15 @@
             updateValue(value) {
                 value = this.slugify(value);
 
-                this.$set(this.component, this.name, value);
+                // this.$set(this.component, this.name, value);
                 this.value = value;
                 this.manuallyChanged = true;
             },
 
             slugify(value) {
                 return value.toString().toLowerCase()
-                    .replace(/[.,\/#!$%\^&\*;:'"{}=|<>`~()?]/g, "")
-                    .replace(/([^\w]|[_])+/g, " ")          // Convert all non-word characters to single space
+                    .replace(/[,\/#!$%\^&\*;:'"{}=|<>`~()?]/g, "")
+                    .replace(/([^\w]|[_]|[.])+/g, " ")      // Convert all non-word characters to single space
                     .trim()
                     .replace(/\s+/g, this.delimiter);       // Convert spaces with delimiter
             }

@@ -10,7 +10,8 @@
 
 		<div class="list-group pt-2">
 			<ui-node
-				v-for="node in model"
+				v-for="node in model, key"
+				:key="key"
 				:reference="reference"
 				:source="source + '/children'"
 				:model="node"

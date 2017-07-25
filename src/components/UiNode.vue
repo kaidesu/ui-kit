@@ -16,7 +16,8 @@
 
 		<div class="list-group mt-3" v-if="hasChildren(model)" v-show="open">
 			<ui-node
-				v-for="child in model.children"
+				v-for="child in model.children, key"
+				:key="key"
 				:reference="reference"
 				:source="source"
 				:model="child"

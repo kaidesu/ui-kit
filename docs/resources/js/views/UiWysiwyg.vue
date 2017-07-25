@@ -5,8 +5,7 @@
 
         <h3>Examples</h3>
         <div class="ui-example">
-            <ui-wysiwyg name="example">
-            </ui-wysiwyg>
+            <ui-wysiwyg name="example"></ui-wysiwyg>
         </div>
 
         <div class="highlight">
