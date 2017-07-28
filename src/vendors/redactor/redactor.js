@@ -1,7 +1,7 @@
 /*
 	Redactor II
-	Version 2.6
-	Updated: May 17, 2017
+	Version 2.8.1
+	Updated: July 4, 2017
 
 	http://imperavi.com/redactor/
 
@@ -101,7 +101,7 @@
 
 	// Options
 	$.Redactor = Redactor;
-	$.Redactor.VERSION = '2.6';
+	$.Redactor.VERSION = '2.8.1';
 	$.Redactor.modules = ['air', 'autosave', 'block', 'buffer', 'build', 'button', 'caret', 'clean', 'code', 'core', 'detect', 'dropdown',
 						  'events', 'file', 'focus', 'image', 'indent', 'inline', 'insert', 'keydown', 'keyup',
 						  'lang', 'line', 'link', 'linkify', 'list', 'marker', 'modal', 'observe', 'offset', 'paragraphize', 'paste', 'placeholder',
@@ -305,8 +305,6 @@
 		// private
 		type: 'textarea', // textarea, div, inline, pre
 		inline: false,
-		buffer: [],
-		rebuffer: [],
 		inlineTags: ['a', 'span', 'strong', 'strike', 'b', 'u', 'em', 'i', 'code', 'del', 'ins', 'samp', 'kbd', 'sup', 'sub', 'mark', 'var', 'cite', 'small'],
 		blockTags: ['pre', 'ul', 'ol', 'li', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',  'dl', 'dt', 'dd', 'div', 'td', 'blockquote', 'output', 'figcaption', 'figure', 'address', 'section', 'header', 'footer', 'aside', 'article', 'iframe'],
 		paragraphize: true,
@@ -356,6 +354,8 @@
 		{
 			this.$element = $(el);
 			this.uuid = uuid++;
+			this.sBuffer = [];
+            this.sRebuffer = [];
 
 			this.loadOptions(options);
 			this.loadModules();
@@ -515,7 +515,7 @@
 				options
 			);
 
-			this.opts = $.extend(true, this.opts, settings);
+			this.opts = $.extend({}, this.opts, settings);
 
 		},
 		getModuleMethods: function(object)
@@ -1023,7 +1023,25 @@
 				},
 				getBlocks: function(block)
 				{
-					return (typeof block === 'undefined') ? this.selection.blocks() : block;
+					block = (typeof block === 'undefined') ? this.selection.blocks() : block;
+
+    				if ($(block).hasClass('redactor-box'))
+    				{
+        				var blocks = [];
+        				var nodes = this.core.editor().children();
+        			    $.each(nodes, $.proxy(function(i,node)
+    					{
+    						if (this.utils.isBlock(node))
+    						{
+    							blocks.push(node);
+    						}
+
+    					}, this));
+
+    					return blocks;
+    				}
+
+    				return block
 				},
 				replaceClass: function(value, block)
 				{
@@ -1132,13 +1150,13 @@
 				{
                     var saved = this.selection.saveInstant();
 
-					var last = this.opts.buffer[this.opts.buffer.length-1];
+					var last = this.sBuffer[this.sBuffer.length-1];
 					var current = this.core.editor().html();
 
 					var save = (typeof last !== 'undefined' && (last[0] === current)) ? false : true;
     				if (save)
     				{
-						this.opts.buffer.push([current, saved]);
+						this.sBuffer.push([current, saved]);
 					}
 
 					//this.selection.restoreInstant();
@@ -1146,21 +1164,21 @@
 				setRedo: function()
 				{
 					var saved = this.selection.saveInstant();
-					this.opts.rebuffer.push([this.core.editor().html(), saved]);
+					this.sRebuffer.push([this.core.editor().html(), saved]);
 					//this.selection.restoreInstant();
 				},
 				add: function()
 				{
-					this.opts.buffer.push([this.core.editor().html(), 0]);
+					this.sBuffer.push([this.core.editor().html(), 0]);
 				},
 				undo: function()
 				{
-					if (this.opts.buffer.length === 0)
+					if (this.sBuffer.length === 0)
 					{
 						return;
 					}
 
-					var buffer = this.opts.buffer.pop();
+					var buffer = this.sBuffer.pop();
 
 					this.buffer.set('redo');
 					this.core.editor().html(buffer[0]);
@@ -1170,12 +1188,12 @@
 				},
 				redo: function()
 				{
-					if (this.opts.rebuffer.length === 0)
+					if (this.sRebuffer.length === 0)
 					{
 						return;
 					}
 
-					var buffer = this.opts.rebuffer.pop();
+					var buffer = this.sRebuffer.pop();
 
 					this.buffer.set('undo');
 					this.core.editor().html(buffer[0]);
@@ -1185,7 +1203,7 @@
 				},
 				clear: function()
 				{
-    				this.opts.rebuffer = [];
+    				this.sRebuffer = [];
 				}
 			};
 		},
@@ -2352,16 +2370,19 @@
 						return this.caret.after(node.lastChild);
 					}
 
-					sel = window.getSelection();
-					sel.removeAllRanges();
+                    var sel = window.getSelection();
+                    if (sel.getRangeAt || sel.rangeCount)
+                    {
+                        try {
+                            var range = sel.getRangeAt(0);
+                            range.selectNodeContents(node);
+                            range.collapse(false);
 
-                    try {
-			    		range = document.createRange();
-		    			range.selectNodeContents(node);
-	    				range.collapse(false);
-    					sel.addRange(range);
-					}
-					catch(e) {}
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        }
+                        catch(e) {}
+                    }
 				},
 				after: function(node)
 				{
@@ -2693,7 +2714,7 @@
 					html = html.replace(/&amp;/g, '&');
 
 					// remove empty paragpraphs
-					html = html.replace(/<p><\/p>/gi, "");
+					//html = html.replace(/<p><\/p>/gi, "");
 
 					// remove new lines
                     html = html.replace(/\n{2,}/g, "\n");
@@ -2791,6 +2812,10 @@
 						// remove empty p
 						html = html.replace(/<p><\/p>/g, '');
 					}
+
+					// remove paragraphs form lists (google docs bug)
+					html = html.replace(/<li><p>/g, '<li>');
+					html = html.replace(/<\/p><\/li>/g, '</li>');
 
 					return html;
 
@@ -3879,7 +3904,7 @@
 
 					var command = this.dropdown.buildCommand(btnObject);
 
-					if (typeof btnObject.args !== ' undefined')
+					if (typeof btnObject.args !== 'undefined')
 					{
 						this.button.toggle(e, btnName, command.type, command.callback, btnObject.args);
 					}
@@ -4317,6 +4342,7 @@
 					// autosave
 					if (this.autosave.is())
 					{
+
 						clearTimeout(this.autosaveTimeout);
 						this.autosaveTimeout = setTimeout($.proxy(this.autosave.send, this), 300);
 					}
@@ -4750,8 +4776,6 @@
 				    }
 
 					this.image.startResize();
-
-
 				},
 				startResize: function()
 				{
@@ -4772,8 +4796,6 @@
 					var width = Math.round(height * this.image.resizeHandle.ratio);
 
 					if (height < 50 || width < 100) return;
-
-					var height = Math.round(this.image.resizeHandle.el.width() / this.image.resizeHandle.ratio);
 
 					this.image.resizeHandle.el.attr({width: width, height: height});
 		            this.image.resizeHandle.el.width(width);
@@ -5117,7 +5139,7 @@
                     var imageDeleteStop = this.core.callback('imageDelete', e, $image[0]);
 					if (imageDeleteStop === false)
 					{
-						e.preventDefault();
+						if (e) e.preventDefault();
 						return false;
 					}
 
@@ -5399,7 +5421,7 @@
 						}
 						else
 						{
-    						var $first = this.inline.insertBreakpoint($parent[0], currentTag);
+    						var $first = this.inline.insertBreakpoint(inline, currentTag);
                             this.caret.after($first);
 						}
     				}
@@ -6177,12 +6199,11 @@
 					}
 
 					this.utils.disableSelectAll();
-					this.linkify.format();
 
 					if (data.pre) this.clean.cleanPre();
 
-                    // end focus
                     this.caret.end(endNode);
+                    this.linkify.format();
 				},
 				text: function(text)
 				{
@@ -6517,7 +6538,7 @@
 						e.preventDefault();
 
 						this.code.set(this.opts.emptyHtml);
-
+                        this.events.changeHandler();
 						return;
 					}
 
@@ -6893,14 +6914,14 @@
 				},
 				setupBuffer: function(e, key)
 				{
-					if (this.keydown.ctrl && key === 90 && !e.shiftKey && !e.altKey && this.opts.buffer.length) // z key
+					if (this.keydown.ctrl && key === 90 && !e.shiftKey && !e.altKey && this.sBuffer.length) // z key
 					{
 						e.preventDefault();
 						this.buffer.undo();
 						return;
 					}
 					// redo
-					else if (this.keydown.ctrl && key === 90 && e.shiftKey && !e.altKey && this.opts.rebuffer.length !== 0)
+					else if (this.keydown.ctrl && key === 90 && e.shiftKey && !e.altKey && this.sRebuffer.length !== 0)
 					{
 						e.preventDefault();
 						this.buffer.redo();
@@ -7557,6 +7578,8 @@
 						this.caret.after($el);
 					}
 
+					return $el;
+
 				},
 				update: function($el, link)
 				{
@@ -7840,7 +7863,6 @@
 					{
 						return;
 					}
-
 
 					this.core.editor().find(":not(iframe,img,a,pre,code,.redactor-unlink)").addBack().contents().filter($.proxy(this.linkify.isFiltered, this)).each($.proxy(this.linkify.handler, this));
 
@@ -8193,8 +8215,12 @@
 				{
 					var $el = $(el);
 					var text = $el.text().replace(/\u200B/g, '');
+					var parent = $el.parent()[0];
 
-					return (text === '') ? $el.remove() : $el.replaceWith(function() { return $(this).contents(); });
+                    if (text === '') $el.remove();
+                    else $el.replaceWith(function() { return $(this).contents(); });
+
+                    // if (parent && parent.normalize) parent.normalize();
 				}
 			};
 		},
@@ -8589,7 +8615,6 @@
 							this.$modalBox = undefined;
 						}
 
-						$(document.body).css('overflow', this.modal.bodyOveflow);
 						this.core.callback('modalClosed', this.modal.templateName);
 
 					}, this));
@@ -10237,7 +10262,7 @@
 					if (this.opts.toolbarFixedTarget !== document)
 					{
 						var $el = $(this.opts.toolbarFixedTarget);
-						this.toolbarOffsetTop = ($el.length === 0) ? 0 : this.core.box().offset().top - $el.offset().top;
+						this.toolbar.toolbarOffsetTop = ($el.length === 0) ? 0 : this.core.box().offset().top - $el.offset().top;
 					}
 
 					// bootstrap modal fix
@@ -10439,7 +10464,8 @@
 
                         for (var i = 0; i < len; i++)
                         {
-                            this.upload.traverseFile(this.upload.$input[0].files[i], e);
+                            var index = (len - 1) - i;
+                            this.upload.traverseFile(this.upload.$input[0].files[index], e);
                         }
 					}, this));
 
@@ -10495,8 +10521,11 @@
 					}
 
 					this.progress.show();
-					this.core.callback('uploadStart', e, formData);
-					this.upload.send(formData, e);
+					var stop = this.core.callback('uploadStart', e, formData);
+					if (stop !== false)
+					{
+				    	this.upload.send(formData, e);
+					}
 				},
 				setConfig: function(file)
 				{
@@ -10591,9 +10620,11 @@
 					}, this);
 
                     // before send
-                    this.core.callback('uploadBeforeSend', xhr);
-
-					xhr.send(formData);
+                    var stop = this.core.callback('uploadBeforeSend', xhr);
+                    if (stop !== false)
+                    {
+					    xhr.send(formData);
+					}
 				},
 				onDrag: function(e)
 				{
@@ -10687,64 +10718,63 @@
 
 					return xhr;
 				},
-				sendToS3: function(file, url, formData)
-				{
-					var xhr = this.uploads3.createCORSRequest('PUT', url);
-					if (!xhr)
-					{
-						return;
-					}
 
-					xhr.onload = $.proxy(function()
-					{
-						var json;
+                sendToS3: function(file, url, e)
+                {
+                    var xhr = this.uploads3.createCORSRequest('PUT', url);
+                    if (!xhr)
+                    {
+                        return;
+                    }
 
-						this.progress.hide();
+                    xhr.onload = $.proxy(function()
+                    {
+                        var json;
+                        this.progress.hide();
 
-						if (xhr.status !== 200)
-						{
-							// error
-							json = { error: true };
-							this.upload.callback(json, this.upload.direct, xhr);
+                        if (xhr.status !== 200)
+                        {
+                            // error
+                            json = { error: true };
+                            this.upload.callback(json, this.upload.direct, xhr);
 
-							return;
-						}
+                            return;
+                        }
 
-						var s3file = url.split('?');
-
-						if (!s3file[0])
-						{
-							 // url parsing is fail
-							 return false;
-						}
-
-
-						if (!this.upload.direct)
-						{
-							this.upload.$droparea.removeClass('drag-drop');
-						}
-
-						json = { url: s3file[0], id: s3file[0], s3: true };
-						if (this.upload.type === 'file')
-						{
-							var arr = s3file[0].split('/');
-							json.name = arr[arr.length-1];
-						}
-
-						this.upload.callback(json, this.upload.direct, e);
+                        var s3file = url.split('?');
+                        if (!s3file[0])
+                        {
+                            // url parsing is fail
+                            return false;
+                        }
 
 
-					}, this);
+                        if (!this.upload.direct)
+                        {
+                            this.upload.$droparea.removeClass('drag-drop');
+                        }
 
-					xhr.onerror = function() {};
-					xhr.upload.onprogress = function(e) {};
+                        json = { url: s3file[0], id: s3file[0], s3: true };
+                        if (this.upload.type === 'file')
+                        {
+                            var arr = s3file[0].split('/');
+                            json.name = arr[arr.length-1];
+                        }
 
-					xhr.setRequestHeader('Content-Type', file.type);
-					xhr.setRequestHeader('x-amz-acl', 'public-read');
+                        this.upload.callback(json, this.upload.direct, e);
 
-					xhr.send(formData);
 
-				}
+                    }, this);
+
+                    xhr.onerror = function() {};
+                    xhr.upload.onprogress = function(e) {};
+
+                    xhr.setRequestHeader('Content-Type', file.type);
+                    xhr.setRequestHeader('x-amz-acl', 'public-read');
+
+                    xhr.send(file);
+
+                }
 			};
 		},
 

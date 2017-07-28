@@ -12,8 +12,11 @@ let mix = require('laravel-mix');
  */
 
 mix.js('src/ui-kit.js', 'dist/')
-   .sass('src/sass/ui-kit.scss', 'dist/');
-
+   .sass('src/sass/ui-kit.scss', 'dist/')
+   .autoload({
+       jquery: ['$', 'window.jQuery', 'window.$', 'jQuery', 'jquery']
+    });
+    
 // Full API
 // mix.js(src, output);
 // mix.react(src, output); <-- Identical to mix.js(), but registers React Babel compilation.
