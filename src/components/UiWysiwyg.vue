@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <div :class="{'form-group': true, 'row': horizontal}">
-            <label v-if="label" :class="{'col-input-label': horizontal, 'col-form-label': horizontal}" :for="name">{{ label }}</label>
-        </div>
-
-        <div class="form-group">
+    <div :class="{'form-group': true, 'row': horizontal, 'required': required}">
+        
+        <label v-if="label" :class="{'col-input-label': horizontal, 'col-form-label': horizontal}" :for="name">{{ label }}</label>
+        
+        <div :class="{'col': horizontal}">
             <textarea
                 ref="input"
                 :name="name"
                 :id="name"
                 :placeholder="placeholder"
                 :value="value"
+                :required="required"
                 
                 @input="updateValue($event.target.value)"
                 ></textarea>
@@ -81,6 +81,10 @@
                 default: false
             },
             overrideStyles: {
+                type: Boolean,
+                default: false
+            },
+            required: {
                 type: Boolean,
                 default: false
             }
