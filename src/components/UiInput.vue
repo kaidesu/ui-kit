@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'form-group': true, 'row': horizontal}">
+    <div :class="{'form-group': true, 'row': horizontal, 'required': required}">
 
         <label v-if="label" :class="{'col-input-label': horizontal, 'col-form-label': horizontal}" :for="name">{{ label }}</label>
 
