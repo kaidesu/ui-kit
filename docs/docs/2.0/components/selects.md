@@ -12,9 +12,9 @@ toc: true
     <ui-tabs>
         <ui-tab name="Vehicle">
             <ui-select name="ship" label="Ship" placeholder="Select a ship...">
-                <option value="mercury">Dragon</option>
-                <option value="venus">Orion</option>
-                <option value="earth">Shuttle</option>
+                <option value="dragon">Dragon</option>
+                <option value="orion">Orion</option>
+                <option value="shuttle">Shuttle</option>
             </ui-select>
         </ui-tab>
         

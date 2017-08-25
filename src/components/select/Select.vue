@@ -96,7 +96,12 @@
             },
             
             selected(value) {
-                this.$emit('input', value)
+                this.$set(this.component, this.name, value)
+                
+                this.$UIevents.fire('input', {
+                    id: this.name,
+                    value: value
+                })
             }
         }
     }

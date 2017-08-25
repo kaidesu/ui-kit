@@ -146,7 +146,7 @@
 
         methods: {
             updateValue(value) {
-                // this.$set(this.component, this.name, value);
+                this.$set(this.component, this.name, value);
 
                 this.value = value;
 
