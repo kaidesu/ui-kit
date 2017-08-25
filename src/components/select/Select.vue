@@ -103,6 +103,10 @@
                     value: value
                 })
             }
+        },
+        
+        mounted() {
+            this.$set(this.component, this.name, this.value)
         }
     }
 </script>
