@@ -26,6 +26,8 @@
 	import UiNode from './UiNode';
 
 	export default {
+		name: 'ui-tree',
+		
 		data() {
 			return {
 				model: []

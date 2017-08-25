@@ -1,16 +1,27 @@
 <template>
     <div class="form-group" :class="{'row': horizontal, 'required': required}">
-
         <label v-if="label" :class="{'col-input-label': horizontal, 'col-form-label': horizontal}" :for="name">{{ label }}</label>
-
         <div :class="{'col': horizontal}">
             <select
-                :class="{'form-control': true, 'form-control-lg': large, 'form-control-sm': small}"
+                class="form-control"
+                ref="select"
+                v-model="selected"
+                :class="{'form-control-lg': large, 'form-control-sm': small}"
                 :name="name"
+                :multiple="multiple"
             >
+                <option v-if="placeholder"
+                    :value="null"
+                    selected
+                    disabled
+                    hidden
+                >
+                    {{ placeholder }}
+                </option>
+            
                 <slot></slot>
             </select>
-
+            
             <p v-if="help" class="form-text text-muted" v-html="help"></p>
         </div>
     </div>
@@ -19,29 +30,39 @@
 <script>
     export default {
         name: 'ui-select',
-
+        
         store: ['component'],
-
+        
         data() {
             return {
-                options: [],
-                show: false,
-                value: 0
+                selected: this.value
             }
         },
-
+        
         props: {
-            val: {
-                type: String,
-                default: ''
-            },
             large: {
                 type: Boolean,
                 default: false
             },
+            multiple: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: null
+            },
+            placeholder: {
+                type: String,
+                default: null
+            },
             small: {
                 type: Boolean,
                 default: false
+            },
+            value: {
+                type: [String, Number, Boolean, Object, Array, Symbol, Function],
+                default: null
             },
             horizontal: {
                 type: Boolean,
@@ -52,10 +73,6 @@
                 default: false
             },
             label: {
-                type: String,
-                default: null
-            },
-            name: {
                 type: String,
                 default: null
             },
@@ -72,32 +89,15 @@
                 default: false
             }
         },
-
-        created() {
-            this._select = true;
-
-            this.value = this.val;
-
-            this.updateValue(this.value);
-        },
-
-        methods: {
-            updateValue(value, event) {
-                this.$set(this.component, this.name, value);
-
-                this.value = value;
-
-                this.$UIevents.fire('input', {
-                    id: this.name,
-                    value: this.value
-                });
-
-                if (typeof event !== 'undefined') {
-                    this.$nextTick(function () {
-                        event.target.value = this.value;
-                    });
-                }
+        
+        watch: {
+            value(value) {
+                this.selected = value
             },
+            
+            selected(value) {
+                this.$emit('input', value)
+            }
         }
     }
 </script>

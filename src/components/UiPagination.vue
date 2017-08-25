@@ -26,6 +26,8 @@
 
 <script>
 	export default {
+		name: 'ui-pagination',
+		
 		props: {
 			model: {
 				type: Object,

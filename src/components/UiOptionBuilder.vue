@@ -73,6 +73,8 @@
 	import _ from 'lodash';
 
 	export default {
+		name: 'ui-option-builder',
+		
 		data() {
 			return {
 				label: '',
