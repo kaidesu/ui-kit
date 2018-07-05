@@ -1,42 +1,27 @@
 {
   "name": "@efelle/ui-kit",
-  "version": "0.14.2",
-  "description": "Bootstrap 4 components built using Vue.js",
+  "version": "0.2.0",
+  "author": "efelle",
+  "description": "Tailwind components built using Vue.js",
+  "license": "MIT",
   "main": "dist/ui-kit.js",
   "scripts": {
-    "dev": "yarn development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "yarn watch -- --watch-poll",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "yarn production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/efellemedia/ui-kit.git"
   },
-  "author": "efelle",
   "bugs": {
     "url": "https://github.com/efellemedia/ui-kit/issues"
   },
   "homepage": "https://github.com/efellemedia/ui-kit#readme",
-  "dependencies": {
-    "autosize": "^3.0.20",
-    "axios": "^0.15.3",
-    "chart.js": "^2.5.0",
-    "dropzone": "^4.3.0",
-    "flatpickr": "^2.4.3",
-    "jquery": "^3.1.1",
-    "laravel-mix": "^1.3.0",
-    "lodash": "^4.17.4",
-    "marked": "^0.3.6",
-    "nestable": "^0.2.0",
-    "sortablejs": "^1.5.1",
-    "tether": "^1.4.0",
-    "umbrellajs": "^2.6.7",
-    "vue": "^2.2.1",
-    "cross-env": "^5.0.1"
-  },
-  "engine": "node 7.1.0"
+  "devDependencies": {
+    "laravel-mix": "^2.1.11",
+    "tailwindcss": "^0.6.1",
+    "vue": "^2.5.16"
+  }
 }
